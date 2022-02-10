@@ -1,16 +1,20 @@
 # Autotune123
 
-Autotune123 is a web application made for configuring basal rates. It relies on the [OpenAPS Autotune algorithm](https://github.com/openaps/oref0). 
-
-You can use online Autotune123. by going to this (link will follow) website or you can clone this repository to your computer with:
-
+Autotune123 is a web application made for configuring insuline basal rates. It relies on the [OpenAPS Autotune algorithm](https://github.com/openaps/oref0)
+and gets it data from [NightScout](https://nightscout.github.io/).
 
 ## Screenshot
 ![screenshot](https://github.com/KelvinKramp/Autotune123/blob/master/assets/screenshot.png)
 
+## Usage
+You can use online Autotune123 by going to this (link will follow) website or you can install it on your 
+computer by following the installation steps beneath.
+
+
+
 ## Installation
 
-If you run it on your own computer, you have to go through the steps written over [here](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) of installing OpenAPS oref Autotune. 
+If you run it on your own computer, you have to go through the steps written over [here](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) to install OpenAPS Autotune. 
 
 After that clone this repository. 
 ```bash
@@ -27,7 +31,6 @@ python dash_app.py
 ```
 
 ## Contributing
-Pull requests are welcome!
 
 If you have questions or find a bug you can also contact me on: k.h.kramp@gmail.com
 
