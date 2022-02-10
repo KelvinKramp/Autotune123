@@ -1,0 +1,192 @@
+{
+    "autosens_max": 1.2,
+    "autosens_min": 0.7,
+    "basalprofile": [
+        {
+            "i": 0,
+            "minutes": 0.0,
+            "start": "00:00:00",
+            "rate": "0.53"
+        },
+        {
+            "i": 1,
+            "minutes": 60.0,
+            "start": "01:00:00",
+            "rate": "0.58"
+        },
+        {
+            "i": 2,
+            "minutes": 120.0,
+            "start": "02:00:00",
+            "rate": "0.60"
+        },
+        {
+            "i": 3,
+            "minutes": 180.0,
+            "start": "03:00:00",
+            "rate": "0.61"
+        },
+        {
+            "i": 4,
+            "minutes": 240.0,
+            "start": "04:00:00",
+            "rate": "0.61"
+        },
+        {
+            "i": 5,
+            "minutes": 300.0,
+            "start": "05:00:00",
+            "rate": "0.62"
+        },
+        {
+            "i": 6,
+            "minutes": 360.0,
+            "start": "06:00:00",
+            "rate": "0.62"
+        },
+        {
+            "i": 7,
+            "minutes": 420.0,
+            "start": "07:00:00",
+            "rate": "0.62"
+        },
+        {
+            "i": 8,
+            "minutes": 480.0,
+            "start": "08:00:00",
+            "rate": "0.61"
+        },
+        {
+            "i": 9,
+            "minutes": 540.0,
+            "start": "09:00:00",
+            "rate": "0.59"
+        },
+        {
+            "i": 10,
+            "minutes": 600.0,
+            "start": "10:00:00",
+            "rate": "0.56"
+        },
+        {
+            "i": 11,
+            "minutes": 660.0,
+            "start": "11:00:00",
+            "rate": "0.52"
+        },
+        {
+            "i": 12,
+            "minutes": 720.0,
+            "start": "12:00:00",
+            "rate": "0.48"
+        },
+        {
+            "i": 13,
+            "minutes": 780.0,
+            "start": "13:00:00",
+            "rate": "0.44"
+        },
+        {
+            "i": 14,
+            "minutes": 840.0,
+            "start": "14:00:00",
+            "rate": "0.41"
+        },
+        {
+            "i": 15,
+            "minutes": 900.0,
+            "start": "15:00:00",
+            "rate": "0.40"
+        },
+        {
+            "i": 16,
+            "minutes": 960.0,
+            "start": "16:00:00",
+            "rate": "0.40"
+        },
+        {
+            "i": 17,
+            "minutes": 1020.0,
+            "start": "17:00:00",
+            "rate": "0.41"
+        },
+        {
+            "i": 18,
+            "minutes": 1080.0,
+            "start": "18:00:00",
+            "rate": "0.42"
+        },
+        {
+            "i": 19,
+            "minutes": 1140.0,
+            "start": "19:00:00",
+            "rate": "0.42"
+        },
+        {
+            "i": 20,
+            "minutes": 1200.0,
+            "start": "20:00:00",
+            "rate": "0.43"
+        },
+        {
+            "i": 21,
+            "minutes": 1260.0,
+            "start": "21:00:00",
+            "rate": "0.44"
+        },
+        {
+            "i": 22,
+            "minutes": 1320.0,
+            "start": "22:00:00",
+            "rate": "0.45"
+        },
+        {
+            "i": 23,
+            "minutes": 1380.0,
+            "start": "23:00:00",
+            "rate": "0.46"
+        }
+    ],
+    "bg_targets": {
+        "units": "mmol",
+        "user_preferred_units": "mmol",
+        "targets": [
+            {
+                "i": 0,
+                "start": "00:00:00",
+                "offset": 0.0,
+                "low": 6.0,
+                "min_bg": 6.0,
+                "high": 6.0,
+                "max_bg": 6.0
+            }
+        ]
+    },
+    "carb_ratio": 15.9,
+    "carb_ratios": {
+        "first": 1,
+        "units": "grams",
+        "schedule": [
+            {
+                "i": 0,
+                "start": "00:00:00",
+                "offset": 0.0,
+                "ratio": 15.9
+            }
+        ]
+    },
+    "dia": 7.0,
+    "isfProfile": {
+        "first": 1,
+        "sensitivities": [
+            {
+                "i": 0,
+                "sensitivity": 2.7,
+                "offset": 0.0,
+                "start": "00:00:00"
+            }
+        ]
+    },
+    "min_5m_carbimpact": 8.0,
+    "timezone": "Europe/Amsterdam"
+}

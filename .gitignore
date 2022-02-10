@@ -1,0 +1,5 @@
+venv
+secrets.json
+.idea
+logfile.txt
+notes.txt
