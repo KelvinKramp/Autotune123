@@ -196,7 +196,7 @@ layout = html.Div([
         ], width={"size": 2, "order": 3, "offset": 0},
         ),
     ], style={
-            'position' : 'absolute',
+            'position' : 'relative',
             'bottom' : '0',
             'text-align':'center',
             # 'height' : '40px',
