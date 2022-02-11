@@ -235,14 +235,12 @@ layout = html.Div([
     Input('run-autotune', 'n_clicks'),
     Input("dropdown", "value")],
     State('input-url', 'value'),
-    State('token', 'value'),
     State('date-picker-range', 'start_date'),
     State('date-picker-range', 'end_date'),
+    State('token', 'value'),
 )
 def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_date, token):
     global dropdown_value_old
-    print("startdate", start_date)
-    print("enddate", end_date)
     # IF CHANGE OF FILTER REFRESH GRAPH AND TABLE
     if dropdown_value != dropdown_value_old:
         dropdown_value_old = dropdown_value
