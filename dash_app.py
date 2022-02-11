@@ -16,7 +16,7 @@ from adjust_table import adjust_table
 from styles import table_style, cell_style, header_style
 
 # VARIABLES
-development = True
+development = False
 dropdown_value_old = "No filter"
 autotune = Autotune()
 df = pd.DataFrame()
@@ -127,7 +127,7 @@ layout = html.Div([
         html.Hr(),
         dbc.Row([
             html.H5("3C: Upload to NightScout:"),
-            dcc.Markdown("Enter your API secret and click the upload button. API secrets are not saved anywhere, only in your browser "
+            dcc.Markdown("Enter your API secret and click the upload button. API secrets are not saved in autotune123. The secret will nly be saved in your browser "
                          "if you use a password manager. If you don't want to use this website for uploading recommendations, you can "
                          "download the code from [Github](https://github.com/KelvinKramp/AutotuneAPI) and run it locally on your computer."
                          ),
@@ -157,16 +157,7 @@ layout = html.Div([
         style={"width": "70%", 'justify-content': 'center'}
     ),],
         justify='center'),
-    # html.Br(),
-    # html.Br(),
-    # html.Br(),
-    # html.Br(),
-    # html.Br(),
     dbc.Row([
-        # dbc.Col([
-        # html.Div("Documentation"),
-        # ], width={"size": 2, "order": 1, "offset": 0},
-        # ),
         dbc.Col([
             dcc.Link("What is Autotune?",
                      href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html",
@@ -241,6 +232,12 @@ layout = html.Div([
 )
 def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_date, token):
     global dropdown_value_old
+
+    # some extra code to prevent bug in callback when dash runs on AWS ubuntu VM
+    if token == None:
+        token = ""
+
+
     # IF CHANGE OF FILTER REFRESH GRAPH AND TABLE
     if dropdown_value != dropdown_value_old:
         dropdown_value_old = dropdown_value

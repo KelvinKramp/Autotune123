@@ -32,8 +32,8 @@ def get_recommendations():
         command = "cp {} ./new_profile.csv".format(recommendations_file)
         subprocess.call(command, shell=True)
         df = pd.read_csv("./new_profile.csv",delimiter = "|",)
-        command = "rm new_profile.csv".format(recommendations_file)
-        subprocess.call(command, shell=True)
+        command1 = "rm new_profile.csv"
+        subprocess.call(command1, shell=True)
         df = df.drop([0])
         # remove spaces in column names
         df.columns = df.columns.str.replace(' ', '')

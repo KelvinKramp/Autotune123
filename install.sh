@@ -1,4 +1,4 @@
-# save profile local
+# directories
 mkdir ~/myopenaps
 mkdir ~/myopenaps/settings
 
