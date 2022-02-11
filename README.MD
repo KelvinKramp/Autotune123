@@ -1,7 +1,7 @@
 # Autotune123
 
-Autotune123 is a web application made for configuring insuline basal rates. It relies on the [OpenAPS Autotune algorithm](https://github.com/openaps/oref0)
-and gets it data from [NightScout](https://nightscout.github.io/).
+Autotune123 is a web application made for configuring basal insulin rates. It relies on the [OpenAPS Autotune algorithm](https://github.com/openaps/oref0)
+and gets it data from personal [NightScout](https://nightscout.github.io/) websites.
 
 ## Screenshot
 ![screenshot](https://github.com/KelvinKramp/Autotune123/blob/master/assets/screenshot.png)
