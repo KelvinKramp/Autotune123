@@ -195,7 +195,7 @@ def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_da
         start_row_index = 4
         df_recommendations = adjust_table(df_recommendations,[y1,y2],["Pump","Autotune"],start_row_index)
         return [], [], [], [], False, False, False, [{"name": i, "id": i} for i in df_recommendations.columns], \
-               df_recommendations.to_dict('records'), "Step 3: Review and activate", html.Div(children=[graph])
+               df_recommendations.to_dict('records'), "Step 3: Review and upload", html.Div(children=[graph])
 
     # RUN AUTOTUNE
     if run_autotune and start_date and end_date and NS_HOST and autotune.url_validator(NS_HOST):
@@ -206,7 +206,7 @@ def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_da
         # adjust_table()
 
         return [], [], [], [], True, True, False, [{"name": i, "id": i} for i in df_recommendations.columns], \
-               df_recommendations.to_dict('records'), "Step 3: Review and activate", html.Div(children=[graph])
+               df_recommendations.to_dict('records'), "Step 3: Review and upload", html.Div(children=[graph])
     else:
         df = pd.DataFrame()
 

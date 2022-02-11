@@ -225,7 +225,6 @@ def get_profile(nightscout, directory="myopenaps/settings", token=None):
     profile = ns_to_oaps(get_current_profile(nightscout, token))
     profile = correct_current_basals(profile)
     logging.debug("Checking for directory: %s", directory)
-    print(directory)
     checkdir(directory)
     for profile_file in PROFILE_FILES:
         with open(os.path.join(directory, profile_file), 'w') as f:

@@ -29,7 +29,6 @@ class Autotune:
 	def get(self, nightscout):
 		profile = get_profile(nightscout)
 		print("nightscout profile succesfully retreived")
-		print(profile)
 		d = profile
 		carb_ratio = d["carb_ratios"]["schedule"][0]["ratio"]
 		sensitivity = d["isfProfile"]["sensitivities"][0]["sensitivity"]

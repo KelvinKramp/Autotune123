@@ -2,7 +2,6 @@ import pandas as pd
 
 def adjust_table(df, new_columns, column_names, start_row_index):
     for i,new_column in enumerate(new_columns):
-        print(i, new_column)
         if new_column: # if column not emptuy
             # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html
             df.loc[start_row_index:len(df[column_names[i]]),column_names[i]] = new_column
