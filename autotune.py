@@ -53,7 +53,7 @@ class Autotune:
 			myopenaps = os.path.join(os.path.expanduser('~'), directory)
 			checkdir(myopenaps)
 			print("starting autotune run")
-			command2 = "oref0-autotune --dir={} --ns-host={} --start-date={}  --end-date={}  > logfile.txt".format(myopenaps, nightscout, start_date, end_date,)
+			command2 = "sudo oref0-autotune --dir={} --ns-host={} --start-date={}  --end-date={}  > logfile.txt".format(myopenaps, nightscout, start_date, end_date,)
 			subprocess.call(command2, shell=True)
 			os.chdir(ROOT_DIR)
 			print("new nightscout profile succesfully created and saved")
@@ -107,7 +107,7 @@ class Autotune:
 			file_path = os.path.join(ROOT_DIR+UPLOAD_FOLDER + file_name)
 			with open(file_path, 'w', encoding='utf-8') as f:
 				json.dump(profile, f, ensure_ascii=False, indent=4)
-			command3 = "oref0-upload-profile {} {} {} --switch=true".format(UPLOAD_FOLDER+file_name, nightscout, token)
+			command3 = "sudo oref0-upload-profile {} {} {} --switch=true".format(UPLOAD_FOLDER+file_name, nightscout, token)
 			subprocess.call(command3, shell=True)
 			command4 = "rm "+file_path
 			subprocess.call(command4, shell=True)
