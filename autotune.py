@@ -26,8 +26,8 @@ class Autotune:
 			return False
 
 	# GET PROFILE
-	def get(self, nightscout):
-		profile = get_profile(nightscout)
+	def get(self, nightscout, token=None):
+		profile = get_profile(nightscout, token)
 		print("nightscout profile succesfully retreived")
 		d = profile
 		carb_ratio = d["carb_ratios"]["schedule"][0]["ratio"]
@@ -107,7 +107,7 @@ class Autotune:
 			file_path = os.path.join(ROOT_DIR+UPLOAD_FOLDER + file_name)
 			with open(file_path, 'w', encoding='utf-8') as f:
 				json.dump(profile, f, ensure_ascii=False, indent=4)
-			command3 = "oref0-upload-profile {} {} {} --switch".format(UPLOAD_FOLDER+file_name, nightscout, token)
+			command3 = "oref0-upload-profile {} {} {} --switch=true".format(UPLOAD_FOLDER+file_name, nightscout, token)
 			subprocess.call(command3, shell=True)
 			command4 = "rm "+file_path
 			subprocess.call(command4, shell=True)

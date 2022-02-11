@@ -24,31 +24,19 @@ def get_current_profile(nightscout, token=None):
     """
     Try to get the active profile
     """
-
-    # GET ACTIVE PROFILE BASED ON LATEST SWITCH
-    p_url = (
-        nightscout +
-        "/api/v1/treatments.json?find[eventType][$eq]=Profile Switch&count=1"
-    )
+    # GET ACTIVE PROFILE BASED ON LATEST CREATION DATE
+    # older version of get_profile used to rely on the resulting profile of the latest switch
+    # the code beneath gave me a somewhat more consistent result
+    r_url = nightscout + "/api/v1/profile.json"
     if token is not None:
-        p_url = p_url + "?" + token
-    p_switch = requests.get(p_url).json()
-    if p_switch:
-        profile = p_switch[0]["profileJson"] # -> returns '{}'
-        profile = eval(profile) # transforms '{}' into {}
-        return profile
-    else:
-        # IF NOT SUCCESFULL GET ACTIVE PROFILE BASED ON LATEST CREATION DATE
-        r_url = nightscout + "/api/v1/profile.json"
-        if token is not None:
-            r_url = r_url + "?" + token
-        p_list = requests.get(r_url).json()
-        list_of_dates = [i["startDate"] for i in p_list]
-        date_of_latest_activated_profile = max(list_of_dates)
-        l = [i for i in p_list if (i["startDate"] == date_of_latest_activated_profile)][0]
-        defaultprofile = l["defaultProfile"]
-        profile = l["store"][defaultprofile]
-        return profile
+        r_url = r_url + "?" + token
+    p_list = requests.get(r_url).json()
+    list_of_dates = [i["startDate"] for i in p_list]
+    date_of_latest_activated_profile = max(list_of_dates)
+    l = [i for i in p_list if (i["startDate"] == date_of_latest_activated_profile)][0]
+    defaultprofile = l["defaultProfile"]
+    profile = l["store"][defaultprofile]
+    return profile
 
 
 def normalize_entry(entry):

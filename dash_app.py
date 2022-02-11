@@ -16,6 +16,7 @@ from adjust_table import adjust_table
 from styles import table_style, cell_style, header_style
 
 # VARIABLES
+development = True
 dropdown_value_old = "No filter"
 autotune = Autotune()
 df = pd.DataFrame()
@@ -28,7 +29,7 @@ params = [
 # LAYOUT
 layout = html.Div([
     html.Img(src=app.get_asset_url("header.png"), style={'width':'100%'}),
-    dbc.Row(children=[html.Div(" .")]),
+    dbc.Row(children=[html.Div(" .",id="step-0")]),
     html.H3("", id='title', style={'textAlign': 'center',}),
     html.H4("", id='subtitle', style={'textAlign': 'center'}),
     html.Br(),
@@ -39,9 +40,16 @@ layout = html.Div([
         html.Div(id="step-1", hidden=False, children=[
         dbc.Row([
             dcc.Input(
-                id="input-url", type="url", placeholder="Your nightscout URL",style={'text-align': 'center'},
+                id="input-url", type="url", placeholder="NightScout URL", required=True, style={'marginBottom': '1.5em', 'text-align': 'center'},
+            ),
+            html.Br(),
+            html.Br(),
+            dcc.Input(
+                id="token", type="password", placeholder="API secret", required=False, style={'text-align': 'center'},
             ),
         ], style={'text-align': 'center', 'margin': 'auto', 'width': '40%'}, className='justify-content-center'),
+        html.Div("(Only required if the NightScout url is locked)",style={'text-align': 'center'}
+                 ),
         html.Br(),
         dbc.Row([
             dbc.Button('Load profile', id='load-profile', n_clicks=0),
@@ -149,7 +157,54 @@ layout = html.Div([
         style={"width": "70%", 'justify-content': 'center'}
     ),],
         justify='center'),
-    html.Br(),
+    # html.Br(),
+    # html.Br(),
+    # html.Br(),
+    # html.Br(),
+    # html.Br(),
+    dbc.Row([
+        # dbc.Col([
+        # html.Div("Documentation"),
+        # ], width={"size": 2, "order": 1, "offset": 0},
+        # ),
+        dbc.Col([
+            dcc.Link("What is Autotune?",
+                     href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html",
+                     target="_blank",
+                     style={'color': 'darkgrey'}),
+        ],width={"size": 2, "order": 2, "offset": 0},
+        ),
+        dbc.Col([
+            dcc.Link("What is Autotune123?",
+                     href="https://github.com/KelvinKramp/Autotune123",
+                     target="_blank",
+                     style={'color': 'darkgrey'}),
+        ], width={"size": 2, "order": 3, "offset": 0},
+        ),
+        dbc.Col([
+            dcc.Link("What is NightScout?",
+                     href="https://nightscout.github.io/",
+                     target="_blank",
+                     style={'color': 'darkgrey'}),
+        ], width={"size": 2, "order": 3, "offset": 0},
+        ),
+        dbc.Col([
+            dcc.Link("How to get glucose data from the Freestyle libre 2 to Nightscout ",
+                     href="https://towardsdatascience.com/how-to-hack-a-glucose-sensor-ebaaf2238170",
+                     target="_blank",
+                     style={'color': 'darkgrey'}),
+        ], width={"size": 2, "order": 3, "offset": 0},
+        ),
+    ], style={
+            'position' : 'absolute',
+            'bottom' : '0',
+            'text-align':'center',
+            # 'height' : '40px',
+            # 'margin-top' : '40px',
+            'margin-bottom' : '20px',
+            'width':'100%',
+            }, className='justify-content-center',
+    ),
     html.Div(id="empty-div-autotune"),
     dcc.Loading(
         id="loading-1",
@@ -180,10 +235,11 @@ layout = html.Div([
     Input('run-autotune', 'n_clicks'),
     Input("dropdown", "value")],
     State('input-url', 'value'),
+    State('token', 'value'),
     State('date-picker-range', 'start_date'),
     State('date-picker-range', 'end_date'),
 )
-def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_date):
+def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_date, token):
     global dropdown_value_old
 
     # IF CHANGE OF FILTER REFRESH GRAPH AND TABLE
@@ -199,7 +255,8 @@ def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_da
 
     # RUN AUTOTUNE
     if run_autotune and start_date and end_date and NS_HOST and autotune.url_validator(NS_HOST):
-        autotune.run(NS_HOST, start_date, end_date)
+        if not development:
+            autotune.run(NS_HOST, start_date, end_date)
         df_recommendations = get_recommendations()
         x, y1, y2 = get_filtered_data(df_recommendations, dropdown_value)
         graph = create_graph(x, y1, y2)
@@ -212,7 +269,7 @@ def load_profile(load, run_autotune, dropdown_value, NS_HOST, start_date, end_da
 
     # GET PROFILE
     if load>0:
-        df_basals, df_non_basals, _ = autotune.get(NS_HOST)
+        df_basals, df_non_basals, _ = autotune.get(NS_HOST, token)
         return  [{"name": i, "id": i} for i in df_non_basals.columns], df_non_basals.to_dict('records'), \
                 [{"name": i, "id": i} for i in df_basals.columns], df_basals.to_dict('records'),\
                 True, False, True,[], [], "Step 2: Pick time period", html.Div(children=[])
@@ -234,12 +291,17 @@ def activate_profile(click, NS_HOST, API_SECRET, json_data, is_open):
     if click and NS_HOST and API_SECRET and json_data:
         _, _, profile = autotune.get(NS_HOST)
         new_profile = autotune.create_adjusted_profile(json_data, profile)
-        result = autotune.upload(NS_HOST, new_profile, API_SECRET)
-        # result = True
-        if result:
-            return "New profile activated. Check your phone to see if the activation was succesful.", not is_open
+        if not development:
+            result = autotune.upload(NS_HOST, new_profile, API_SECRET)
         else:
-            return "Profile activation was unsuccessful. Try to run on your computer or send an email k.h.kramp@gmail.com.", not is_open
+            result = True
+        if result:
+            return "New profile activated. Check your profile over 15 min. to see if the activation was successful." \
+                   'The new profile is visible under the name "OpenAPS Autosync"', \
+                   not is_open
+        else:
+            return "Profile activation was unsuccessful. You can try to [run the script on your computer](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html)" \
+                   " or [report a bug](k.h.kramp@gmail.com).", not is_open
     else:
         return "", is_open
 

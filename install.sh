@@ -22,15 +22,13 @@
  sudo activate-global-python-argcomplete
  echo "STEP 9"
  npm install -g json oref0
- echo "STEP 10"
- sudo apt-get install bc
 
 
  # download javascript autotune pacakage and install node
- echo "STEP 11"
+ echo "STEP 10"
  mkdir ~/src
  cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
- echo "STEP 12"
+ echo "STEP 11"
  cd ~/src/oref0
  sudo apt-get install -y npm
  sudo npm run global-install
