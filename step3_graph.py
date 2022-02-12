@@ -66,4 +66,4 @@ step3_graph = html.Div([
 
 if __name__ == '__main__':
     app.layout = step3_graph
-    app.run_server(host='0.0.0.0', port=8000, debug=True, use_reloader=True)
+    app.run_server()

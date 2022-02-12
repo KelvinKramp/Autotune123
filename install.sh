@@ -22,7 +22,7 @@ sudo activate-global-python-argcomplete
 echo "STEP 9"
 npm install -g json oref0
 echo "step 10"
-sudo apt-get install jq
+sudo apt-get install -y jq
 
 
 
@@ -36,12 +36,12 @@ sudo apt-get install -y npm
 sudo npm run global-install
 
 # upgrade operating system
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y update
+sudo apt-get -y upgrade
 
 # activate virtual environment and install python packages
-cd ~/Autotune123
 sudo apt-get install -y python3-pip python3-venv build-essential libssl-dev libffi-dev python-dev
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
+pip3 install gunicorn
