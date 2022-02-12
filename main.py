@@ -36,7 +36,7 @@ app = dash.Dash(__name__,
 server = app.server
 
 # LAYOUT
-layout = html.Div([
+app.layout = html.Div([
     html.Img(src=app.get_asset_url("header.png"), style={'width':'100%'}),
     dbc.Row(children=[html.Div(" .",id="step-0")]),
     html.H3("", id='title', style={'textAlign': 'center',}),
@@ -320,7 +320,6 @@ def toggle_alert_no_fade(n, is_open):
         return not is_open
     return is_open
 
-app.layout = layout
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0', port=8000, debug=True, use_reloader=True)

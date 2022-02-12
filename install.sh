@@ -1,8 +1,8 @@
+echo "Step 0"
 # copy to user dir
 cd /home/ubuntu || exit
-cp /home/ubuntu/Autotune123/{,.[^.]}* /home/ubuntu || exit
-
-# directories
+cp -r /home/ubuntu/Autotune123/{,.[^.]}* /home/ubuntu || exit
+# and make directories
 mkdir ~/myopenaps
 mkdir ~/myopenaps/settings
 
@@ -49,9 +49,14 @@ sudo apt-get install -y python3-pip python3-venv build-essential libssl-dev libf
 
 # activate virtual environment and install python packages
 python3 -m venv venv
+echo 'virtual environment created'
 source venv/bin/activate
+echo 'virtual environment activated'
 pip3 install -r requirements.txt
+echo 'installed requirements'
 
 # install gunicorn
 pip3 install gunicorn
+echo 'installed gunicorn'
+cd ~ || exit
 
