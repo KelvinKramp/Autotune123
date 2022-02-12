@@ -1,3 +1,7 @@
+# copy to user dir
+cd /home/ubuntu || exit
+cp /home/ubuntu/Autotune123/{,.[^.]}* /home/ubuntu || exit
+
 # directories
 mkdir ~/myopenaps
 mkdir ~/myopenaps/settings
@@ -31,17 +35,23 @@ echo "STEP 10"
 mkdir ~/src
 cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
 echo "STEP 11"
-cd ~/src/oref0
+cd ~/src/oref0 || exit
 sudo apt-get install -y npm
 sudo npm run global-install
 
 # upgrade operating system
+cd /home/ubuntu || exit
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-# activate virtual environment and install python packages
+# install python build packages
 sudo apt-get install -y python3-pip python3-venv build-essential libssl-dev libffi-dev python-dev
+
+# activate virtual environment and install python packages
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
+
+# install gunicorn
 pip3 install gunicorn
+

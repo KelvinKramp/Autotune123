@@ -1,8 +1,8 @@
+import dash
 from dash import html
 from dash import dash_table
 import dash_bootstrap_components as dbc
 import pandas as pd
-from app.app import app
 from dash.dependencies import Input, Output, State
 from dash import dcc
 from autotune import Autotune
@@ -14,6 +14,7 @@ import plotly.graph_objs as go
 from create_graph import create_graph
 from adjust_table import adjust_table
 from styles import table_style, cell_style, header_style
+import os
 
 # VARIABLES
 development = False
@@ -24,7 +25,15 @@ params = [
     'Weight', 'Torque', 'Width', 'Height',
     'Efficiency', 'Power', 'Displacement'
 ]
+assets_path = os.getcwd() +'/assets'
 
+# START APP
+app = dash.Dash(__name__,
+                assets_folder=assets_path,
+                title="Autotune123",
+                suppress_callback_exceptions=True,
+                external_stylesheets=[dbc.themes.FLATLY])
+server = app.server
 
 # LAYOUT
 layout = html.Div([
@@ -311,7 +320,7 @@ def toggle_alert_no_fade(n, is_open):
         return not is_open
     return is_open
 
+app.layout = layout
 
 if __name__ == '__main__':
-    app.layout = layout
     app.run_server(host='0.0.0.0', port=8000, debug=True, use_reloader=True)
