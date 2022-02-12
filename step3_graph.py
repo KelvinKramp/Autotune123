@@ -1,7 +1,7 @@
 from dash import html
 from dash import dcc
 import dash_bootstrap_components as dbc
-
+from main import app
 
 step3_graph = html.Div([
     html.Div(id='graph'),
