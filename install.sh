@@ -55,8 +55,11 @@ echo 'virtual environment activated'
 pip3 install -r requirements.txt
 echo 'installed requirements'
 
-# install gunicorn
+# install gunicorn and gunicorn
 pip3 install gunicorn
-echo 'installed gunicorn'
+sudo apt-get install nginx
+echo 'installed nginx and gunicorn'
+
+
 cd ~ || exit
 

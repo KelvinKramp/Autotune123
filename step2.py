@@ -8,16 +8,16 @@ from datetime import timedelta
 from styles import table_style, cell_style, header_style
 
 step2 = html.Div(children=[
-    html.Br(),
     dbc.Row([
         html.Div([
             dcc.DatePickerRange(
                 id='date-picker-range',
-                min_date_allowed=date(2000, 8, 5),
+                min_date_allowed=dt.now().date()-timedelta(days=90),
                 max_date_allowed=dt.now().date(),
                 initial_visible_month=dt.now().date(),
+                minimum_nights=2,
                 display_format='D-M-Y',
-                start_date=(dt.now() - timedelta(7)).date(),
+                start_date=(dt.now() - timedelta(4)).date(),
                 end_date=dt.now().date(),
                 # end_date=dt.now().date()
             ),
@@ -27,6 +27,19 @@ step2 = html.Div(children=[
     dbc.Row([
         dbc.Button('Run autotune', id='run-autotune', n_clicks=0),
     ], style={'text-align': 'center', 'margin': 'auto', 'width': '30%'}, className='justify-content-center'),
+    html.Br(),
+    html.Div(
+        [
+            dbc.Checklist(
+                options=[
+                    {"label": "Categorize unannounced meals (UAM) as part of basal", "value": 1},
+                ],
+                value=[],
+                id="checklist",
+                inline=True,
+            ),
+        ],
+        style={'text-align': 'center', 'margin': 'auto', 'width': '70%'}, className='justify-content-center'),
     html.Br(),
     html.Hr(),
     html.Br(),
@@ -68,8 +81,8 @@ step2 = html.Div(children=[
                 style_header={'display':'none'},
                 editable=False,
             ),
-        html.Div("* Scroll through the table to see all values."),
         html.Div("* The timestamps that did not have a basal rate "
                  "where autocompleted with the basal rate of the previous timestamp."),
+        html.Div("* Scroll through the table to review all values."),
         html.Br(),
     ])

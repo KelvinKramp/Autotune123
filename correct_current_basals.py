@@ -24,6 +24,7 @@ def correct_current_basals(profile):
             # if difference >30 minutes
             if diff > 30:
                 d_new = copy.deepcopy(d_compare1) # deepcopy to create independent object and prevent unwanted changes
+                # mmodify d_new to format i, start (starttime), minutes (total minutes passed in day)
                 for k in range((int(diff/30)-1)):
                     d_new["minutes"] = d_compare1["minutes"] +30*(k+1)
                     d_new["i"] = d_compare1["i"] + k+1
@@ -34,13 +35,14 @@ def correct_current_basals(profile):
                         print(d_new, file=f)
 
 
-
+        # last value of list
         if i == len(l)-1:
             with open(name_intermediary_txt, 'a') as f:
                 print(j, file=f)
+
+            # do the same thing as above but copare with the first value
             d_compare1 = l[0]
             d_compare2 = l[-1]
-
             diff = (parser.parse(d_compare1['start']) - parser.parse(d_compare2['start']))
             diff = (diff.seconds/60)
             if diff > 30:

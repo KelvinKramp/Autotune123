@@ -2,7 +2,7 @@ import numpy as np
 from scipy.signal import savgol_filter
 
 
-def get_filtered_data(df, filter):
+def get_filtered_data(df, filter="No filter"):
     # clean lists by removing sensitivity, removing IC ratio, removing empty values and converting strings
     # with ratios to floats.
 

@@ -27,6 +27,7 @@ class Autotune:
 			print(e)
 			return False
 
+	# CLEAN UP FILES
 	def clean_up(self):
 		directory = "myopenaps/settings"
 		directory = os.path.join(os.path.expanduser('~'), directory)
@@ -54,23 +55,21 @@ class Autotune:
 		return df_basals, df_non_basals, profile
 
 	# GET RECOMMENDATIONS
-	def run(self, nightscout, start_date, end_date, directory="myopenaps"):
+	def run(self, nightscout, start_date, end_date, uam=False, directory="myopenaps"):
 		try:
 			if not 'end_date':
 				end_date = dt.utcnow().date().strftime("%Y-%m-%d")
-
-			# *** I INCLUDED THIS PART WHEN TRYING TO RUN ON EPIPHMERIAL GCP, IF RUN ON LOCAL THIS IS NOT NECESSARY
-			# BUT INSTEAD RUN https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html from step 1c
-			# command1 = "./install.sh"
-			# os.chdir(ROOT_DIR)
-			# subprocess.call(command1, shell=True)
 			myopenaps = os.path.join(os.path.expanduser('~'), directory)
 			checkdir(myopenaps)
 			print("starting autotune run")
-			command2 = "oref0-autotune --dir={} --ns-host={} --start-date={}  --end-date={}  > logfile.txt".format(myopenaps, nightscout, start_date, end_date,)
+			if uam:
+				command2 = "oref0-autotune --dir={} --ns-host={} --start-date={}  --end-date={}  --categorize-uam-as-basal=true > logfile.txt".format(
+					myopenaps, nightscout, start_date, end_date, )
+			else:
+				command2 = "oref0-autotune --dir={} --ns-host={} --start-date={}  --end-date={}  > logfile.txt".format(myopenaps, nightscout, start_date, end_date,)
 			subprocess.call(command2, shell=True)
 			os.chdir(ROOT_DIR)
-			print("calculated new nightscout profile succesfully ")
+			print("getting recommendations")
 			df_recommendations = get_recommendations()
 			return df_recommendations
 		except Exception as e:
@@ -84,17 +83,18 @@ class Autotune:
 		l = autotune_recomm
 		d = old_profile
 
-		# extract sensitivity and carbratio from autotune recommendations dictionary
+		# extract sensitivity and carbratio from autotune recommendations dictionary and insert in old profile
 		for i in l:
 			if "ISF" in str(i["Parameter"]):
 				sensitivity = i["Autotune"]
 			if "CarbRatio" in str(i["Parameter"]):
 				carb_ratio = i["Autotune"]
+
 		d["carb_ratios"]["schedule"][0]["ratio"] = round(float(carb_ratio), 1)
 		d["carb_ratio"] = round(float(carb_ratio), 1)
 		d["isfProfile"]["sensitivities"][0]["sensitivity"] = round((float(sensitivity) / 18), 1)
 
-		# extract basal value from autotune recommendations dictionary
+		# extract basal value from autotune recommendations dictionary into list "m"
 		ftr = [3600, 60, 1]
 		m = []
 		for i, j in enumerate(l):
@@ -109,6 +109,8 @@ class Autotune:
 					l = {'i': k, 'minutes': 60.0 * k, 'start': '{:02d}:00:00'.format(k),
 						 'rate': "{:.2f}".format(float(j["Autotune"]))}
 					m.append(l)
+
+		# save list in old profile basalprofile,thereby creating a profile with new basal rates
 		d["basalprofile"] = m
 
 		return d

@@ -4,3 +4,6 @@ secrets.json
 *.txt
 *.pem
 uploads/profile_2_upload.json
+ec2_instance_files/autotune123.pem
+ec2_instance_files/aws_try.txt
+ec2_instance_files
