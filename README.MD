@@ -2,7 +2,7 @@
 
 Autotune123 is a web application for type 1 diabetics to configure their insuline pump basal rate. It relies on the open source [OpenAPS Autotune algorithm](https://github.com/openaps/oref0), the 
 Savitzky-Golay filter, and uses data from a personal [NightScout](https://nightscout.github.io/) websites as input to propose a 24-hour basal curve. 
-You can see how it in action by going to www.autotune123.com and using the NightScout website url https://tig-diab.herokuapp.com as input.
+You can see how it in action by going to www.autotune123.com and using a NightScout website url as input.
 
 
 ## Screenshot
