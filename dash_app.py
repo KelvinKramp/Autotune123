@@ -49,7 +49,36 @@ def init_dashboard(server):
 
     # LAYOUT
     app.layout = html.Div([
-        html.Img(src=app.get_asset_url("header.png"), style={'width': '100%'}),
+        dbc.Navbar(
+            html.A(
+            html.Img(src=app.get_asset_url("header.png"), height="100px"),
+                href="https://www.autotune123.com",
+                style={"textDecoration": "none"},
+            ),
+            # dbc.Container(
+            #     [
+            #         html.A(
+            #             # Use row and col to control vertical alignment of logo / brand
+            #             dbc.Row(
+            #                 [
+            #                     dbc.Col(html.Img(src=app.get_asset_url("header.png"), height="60px")),
+            #                     # dbc.Col(dbc.NavbarBrand("Configure your basals in three steps", className="ms-3")),
+            #                 ],
+            #                 align="center",
+            #                 className="g-0",
+            #             ),
+            #             href="https://plotly.com",
+            #             style={"textDecoration": "none"},
+            #         ),
+            #         # dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
+            #     ]
+            # ),
+            color="primary",
+            dark=True,
+            style={'textAlign':"center"},
+            className='justify-content-center',
+        ),
+
         dbc.Row(children=[html.Div(" .", id="step-0")]),
         html.H3("", id='title', style={'textAlign': 'center', }),
         html.H4("", id='subtitle', style={'textAlign': 'center'}),
@@ -59,6 +88,13 @@ def init_dashboard(server):
             fullscreen=True,
             type="circle",
             color="#2c3e50",
+            style={'backgroundColor': 'transparent',
+                   # 'height': '50%',
+                   # 'width': '50%',
+                   'text-align': 'center',
+                   'margin': 'auto',
+                   'justify-content':'center'
+                   },
             children=
         dbc.Row([
             html.Div(children=[
@@ -100,7 +136,7 @@ def init_dashboard(server):
                 dbc.Row(children=[
                     html.Div(id="step-3", hidden=False, children=[
                     dbc.Row([
-                        html.H5("3A: Apply filter to smooth of calculated recommendations (optional)"),
+                        html.H5("3A: Apply filter to smooth calculated recommendations (optional)"),
                         dbc.Row(children=[html.Div(children=step3_graph),]),
                         html.Br(),
                         html.Hr(),
@@ -155,7 +191,7 @@ def init_dashboard(server):
                     dbc.Row([
                         html.H5("3C: Upload to NightScout:"),
                         html.Div(children=[
-                            "Enter your API secret and click the upload button. API secrets are not saved in Autotune123. If you don't want to use this website for uploading recommendations, you can "
+                            "Enter your API secret and click the activate button. API secrets and NightScout URLs are not saved in Autotune123. If you don't want to use this website for activating recommendations, you can "
                             "download the code from ",github_link," and run it locally on your computer."
                             ]
                             ),
@@ -188,38 +224,38 @@ def init_dashboard(server):
             justify='center'),),
         dbc.Row([
             dbc.Col([
-                dcc.Link("What is Autotune?",
-                         href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html",
-                         target="_blank",
-                         style={'color': 'darkgrey'}),
-            ], width={"size": 2, "order": 2, "offset": 0},
-            ),
-            dbc.Col([
                 dcc.Link("What is Autotune123?",
                          href="https://github.com/KelvinKramp/Autotune123",
                          target="_blank",
-                         style={'color': 'darkgrey'}),
+                         style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
+            ),
+            dbc.Col([
+                dcc.Link("What is Autotune?",
+                         href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html",
+                         target="_blank",
+                         style={'color': '#2c3e50'}),
+            ], width={"size": 2, "order": 2, "offset": 0},
             ),
             dbc.Col([
                 dcc.Link("What is NightScout?",
                          href="https://nightscout.github.io/",
                          target="_blank",
-                         style={'color': 'darkgrey'}),
+                         style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
             ),
             dbc.Col([
-                dcc.Link("How to get glucose data from the Freestyle libre 2 to Nightscout ",
+                dcc.Link("How to get glucose data from the Freestyle libre 2 to Nightscout",
                          href="https://towardsdatascience.com/how-to-hack-a-glucose-sensor-ebaaf2238170",
                          target="_blank",
-                         style={'color': 'darkgrey'}),
+                         style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
             ),
             dbc.Col([
-                dcc.Link("MIT license",
+                dcc.Link("Open source MIT license",
                          href="https://github.com/KelvinKramp/Autotune123/blob/master/LICENSE.txt",
                          target="_blank",
-                         style={'color': 'darkgrey'}),
+                         style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
             ),
         ], style={

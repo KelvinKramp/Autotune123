@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name 63.32.222.228;
+
+location / {
+  include proxy_params;
+  proxy_pass http://unix:/home/ubuntu/app.sock;
+    }
+}
