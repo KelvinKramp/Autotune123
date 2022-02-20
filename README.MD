@@ -5,7 +5,7 @@ Savitzky-Golay filter, and uses data from a personal [NightScout](https://nights
 You can see it in action by going to www.autotune123.com and using a NightScout website url as an input.
 
 "Autotune is a work in progress tool. Do not blindly make changes to your pump settings without careful consideration. You may want to print the output of this tool and discuss any particular changes with your care team. Make note that you probably do not want to make long-term changes based on short term (i.e. 24 hour) data. Most people will choose to make long term changes after reviewing carefully autotune output of 3-4 weeks worth of data."
-from the [Open APS - Understanding Autotune page](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/understanding-autotune.html)
+excerpt from [Open APS - Understanding Autotune page](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/understanding-autotune.html)
 
 Remember that Autotune does only works if:
 - You have a NightScout account
@@ -17,7 +17,7 @@ Remember that Autotune does only works if:
 ![screenshot](https://github.com/KelvinKramp/Autotune123/blob/master/assets/screenshot.png)
 
 ## Usage
-You can use Autotune123 by going to www.autotune123.com and filling in your NightScout url and your API secret. Neither of the two are stored. 
+You can use Autotune123 by going to www.autotune123.com and filling in your NightScout url and your API secret. They are not stored. 
 If you don't want to use the website, you can install it on your 
 computer by following the installation steps below.
 
@@ -42,7 +42,7 @@ and run the app:
 ```bash
 python dash_app.py
 ```
-It's easy to adjust the code so you don't have to fill in your NightScout url and API secret.  
+It's easy to adjust the code so you don't have to fill in your NightScout url and API secret everytime you run it on your computer  
 
 ## Contributing
 
