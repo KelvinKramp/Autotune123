@@ -7,7 +7,7 @@ You can see it in action by going to www.autotune123.com and using a NightScout 
 "Autotune is a work in progress tool. Do not blindly make changes to your pump settings without careful consideration. You may want to print the output of this tool and discuss any particular changes with your care team. Make note that you probably do not want to make long-term changes based on short term (i.e. 24 hour) data. Most people will choose to make long term changes after reviewing carefully autotune output of 3-4 weeks worth of data."
 excerpt from [Open APS - Understanding Autotune page](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/understanding-autotune.html)
 
-Remember that Autotune does only works if:
+Remember that Autotune only works if:
 - You have a NightScout account
 - You have logged your carbs accurately
 - You virtually disconnect your pump in the looping app if your pump is physically disconnected (e.g. during showering) 
