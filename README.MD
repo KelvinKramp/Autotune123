@@ -12,9 +12,12 @@ Remember that Autotune only works if:
 - You have logged your carbs accurately
 - You virtually disconnect your pump in the looping app if your pump is physically disconnected (e.g. during showering) 
 
+## Diagram
+![Autotune123](images/autotune123.jpeg)
 
 ## Screenshot
-![screenshot](https://github.com/KelvinKramp/Autotune123/blob/master/assets/screenshot.png)
+Before and after applying Saivtzky-Golay filter:
+![BAfilter](images/BA.jpeg)
 
 ## Usage
 You can use Autotune123 by going to www.autotune123.com and filling in your NightScout url and your API secret. They are not stored. 

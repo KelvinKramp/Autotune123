@@ -32,20 +32,13 @@ github_link = html.A("GitHub", href='https://github.com/KelvinKramp/Autotune123'
 
 
 def init_dashboard(server):
-    app = dash.Dash(
-        server=server,
-        routes_pathname_prefix='/',
-        external_stylesheets=[
-            '/static/dist/css/styles.css',
-        ]
-    )
-
     # START APP
     app = dash.Dash(__name__,
                     assets_folder=assets_path,
                     title="Autotune123",
                     suppress_callback_exceptions=True,
-                    external_stylesheets=[dbc.themes.FLATLY])
+                    # external_stylesheets=[dbc.themes.FLATLY]
+                    )
 
     # LAYOUT
     app.layout = html.Div([
@@ -191,7 +184,8 @@ def init_dashboard(server):
                     dbc.Row([
                         html.H5("3C: Upload to NightScout:"),
                         html.Div(children=[
-                            "Enter your API secret and click the activate button. API secrets and NightScout URLs are not saved in Autotune123. If you don't want to use this website for activating recommendations, you can "
+                            "Enter your API secret and click the activate button. API secrets and NightScout URLs are not saved in Autotune123. "
+                            "They might be saved in your browser autocomplete or password manager if you have one. If you don't want to use this website for activating recommendations, you can "
                             "download the code from ",github_link," and run it locally on your computer."
                             ]
                             ),
