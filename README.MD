@@ -10,7 +10,7 @@ excerpt from [Open APS - Understanding Autotune page](https://openaps.readthedoc
 Remember that Autotune only works if:
 - You have a NightScout account
 - You have logged your carbs accurately
-- You virtually disconnect your pump in the looping app if your pump is physically disconnected (e.g. during showering) 
+- You virtually disconnect your pump and correctly register insulin administration in the looping app if your pump is physically disconnected (e.g. during showering or blockage of infusion set) 
 
 ## Diagram
 ![Autotune123](images/autotune123.jpeg)
