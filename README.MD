@@ -16,6 +16,8 @@ Remember that Autotune only works if:
 ![Autotune123](images/autotune123.jpeg)
 
 ## Screenshot
+Loading your profile:
+![BAfilter](images/Screenshot1.png)
 Before and after applying Saivtzky-Golay filter:
 ![BAfilter](images/BA.jpeg)
 
