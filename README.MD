@@ -50,6 +50,6 @@ It's easy to adjust the code so you don't have to fill in your NightScout url an
 ## Contributing
 
 Feature requests, suggestions and pull requests are very much appreciated and welcome!
-
+(btw I really need someone help me with the frontend, it doesnt look very fancy right now...)
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -34,38 +34,21 @@ github_link = html.A("GitHub", href='https://github.com/KelvinKramp/Autotune123'
 def init_dashboard(server):
     # START APP
     app = dash.Dash(__name__,
-                    assets_folder=assets_path,
+                    # assets_folder=assets_path,
                     title="Autotune123",
                     suppress_callback_exceptions=True,
-                    # external_stylesheets=[dbc.themes.FLATLY]
+                    external_stylesheets=[dbc.themes.FLATLY]
                     )
 
     # LAYOUT
     app.layout = html.Div([
         dbc.Navbar(
-            html.A(
-            html.Img(src=app.get_asset_url("header.png"), height="100px"),
-                href="https://www.autotune123.com",
-                style={"textDecoration": "none"},
-            ),
-            # dbc.Container(
-            #     [
-            #         html.A(
-            #             # Use row and col to control vertical alignment of logo / brand
-            #             dbc.Row(
-            #                 [
-            #                     dbc.Col(html.Img(src=app.get_asset_url("header.png"), height="60px")),
-            #                     # dbc.Col(dbc.NavbarBrand("Configure your basals in three steps", className="ms-3")),
-            #                 ],
-            #                 align="center",
-            #                 className="g-0",
-            #             ),
-            #             href="https://plotly.com",
-            #             style={"textDecoration": "none"},
-            #         ),
-            #         # dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
-            #     ]
-            # ),
+            # html.A(
+            # html.Img(src=app.get_asset_url("header.png"), height="100px"),
+            #     href="https://www.autotune123.com",
+            #     style={"textDecoration": "none"},
+            # ),  # used to have this header, but later thought it as ugly
+            html.H2("Autotune 123", style={'color':'white'}),
             color="primary",
             dark=True,
             style={'textAlign':"center"},
@@ -238,6 +221,17 @@ def init_dashboard(server):
                          style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
             ),
+        ], style={
+            'position': 'relative',
+            'bottom': '0',
+            'text-align': 'center',
+            # 'height' : '40px',
+            # 'margin-top' : '40px',
+            'margin-bottom': '20px',
+            'width': '100%',
+        }, className='justify-content-center',
+        ),
+        dbc.Row([
             dbc.Col([
                 dcc.Link("How to get glucose data from the Freestyle libre 2 to Nightscout",
                          href="https://towardsdatascience.com/how-to-hack-a-glucose-sensor-ebaaf2238170",
@@ -248,6 +242,13 @@ def init_dashboard(server):
             dbc.Col([
                 dcc.Link("Open source MIT license",
                          href="https://github.com/KelvinKramp/Autotune123/blob/master/LICENSE.txt",
+                         target="_blank",
+                         style={'color': '#2c3e50'}),
+            ], width={"size": 2, "order": 3, "offset": 0},
+            ),
+            dbc.Col([
+                dcc.Link("About me",
+                         href="https://www.kelvinkramp.com",
                          target="_blank",
                          style={'color': '#2c3e50'}),
             ], width={"size": 2, "order": 3, "offset": 0},
@@ -314,7 +315,7 @@ def init_dashboard(server):
             df_recommendations = get_recommendations()
             x, y1, y2 = get_filtered_data(df_recommendations, dropdown_value)
             graph = create_graph(x, y1, y2)
-            y1_sum = round(sum([x for x in y1 if str(x) != 'nan']), 2)
+            y1_sum = round((sum([x for x in y1 if str(x) != 'nan'])/2), 2)
             y2_sum = round(sum([x for x in y2 if str(x) != 'nan']), 2)
             start_row_index = 4
             df_recommendations = adjust_table(df_recommendations, [y1, y2], ["Pump", "Autotune"], start_row_index)
@@ -330,7 +331,7 @@ def init_dashboard(server):
             df_recommendations = get_recommendations()
             x, y1, y2 = get_filtered_data(df_recommendations, dropdown_value)
             graph = create_graph(x, y1, y2)
-            y1_sum = round(sum([x for x in y1 if str(x) != 'nan']), 2)
+            y1_sum = round((sum([x for x in y1 if str(x) != 'nan'])/2), 2)
             y2_sum = round(sum([x for x in y2 if str(x) != 'nan']), 2)
             # adjust_table()
             return [], [], [], [], True, True, False, [{"name": i, "id": i} for i in df_recommendations.columns], \
