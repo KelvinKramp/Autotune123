@@ -9,3 +9,6 @@ ec2_instance_files/aws_try.txt
 ec2_instance_files
 .envs
 .env
+__pycache__
+old_assets
+.DS_Store
