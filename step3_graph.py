@@ -12,7 +12,8 @@ link5 = html.A(" not set up properly", href='https://diatribe.org/rules-engageme
 
 step3_graph = html.Div([
     html.Div(id='graph'),
-    html.Div(id="total_amounts"),
+    html.Div(id="total_amounts",
+             ),
     html.Br(),
     dbc.Row(
         [

@@ -1,4 +1,3 @@
-import pandas as pd
 
 
 def adjust_table(df, new_columns, column_names, start_row_index):
@@ -9,7 +8,19 @@ def adjust_table(df, new_columns, column_names, start_row_index):
             df.loc[start_row_index:len(df[column_names[i]]),column_names[i]] = new_column
     return df
 
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except (ValueError, TypeError) as e:
+        return False
 
+def sum_column(table_data, column):
+    total = 0
+    for row in table_data[-48:]:
+        if isfloat(row[column]):
+            total += float(row[column])
+    return total
 
 if __name__ == "__main__":
     from get_recommendations import get_recommendations
