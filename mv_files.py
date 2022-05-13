@@ -1,5 +1,5 @@
 import os
-from ROOT_DIR import ROOT_DIR
+from definitions import ROOT_DIR
 
 PROFILE_FILES = ['autotune.json', 'profile.json', 'pumpprofile.json']
 

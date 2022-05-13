@@ -5,7 +5,7 @@ from dash import dcc
 from datetime import date
 from datetime import datetime as dt
 from datetime import timedelta
-from styles import table_style, cell_style, header_style
+from .styles import table_style, cell_style, header_style
 
 step2 = html.Div(children=[
     dbc.Row([

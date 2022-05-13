@@ -23,7 +23,7 @@ def sum_column(table_data, column):
     return total
 
 if __name__ == "__main__":
-    from get_recommendations import get_recommendations
+    from .get_recommendations import get_recommendations
     df = get_recommendations()
     l3 = ['0.868', '', '1.218', '', '1.180', '', '1.158', '', '1.114', '', '1.119', '', '0.469',
           '', '0.534', '', '0.541', '', '0.415', '', '0.381', '', '0.381', '', '0.425', '', '0.482', '', '0.600', '',

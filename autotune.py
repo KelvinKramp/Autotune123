@@ -1,8 +1,8 @@
 import subprocess
 from get_profile import get_profile
 import os
-from ROOT_DIR import ROOT_DIR, checkdir
-from get_recommendations import get_recommendations
+from definitions import ROOT_DIR, checkdir
+from data_processing.get_recommendations import get_recommendations
 from correct_current_basals import correct_current_basals
 import json
 from datetime import datetime as dt
@@ -51,7 +51,7 @@ class Autotune:
 		df_basals = df_basals.drop(["i", "minutes"], axis=1)
 		df_basals["start"] = df_basals["start"].str.slice(stop=-3)
 		df_basals = df_basals.rename(columns={"start": "Time", "rate": "Rate"})
-		df_non_basals = pd.DataFrame(data={'Sensitivity (mg/dL)': [sensitivity], 'Carbratio (gr per unit insuline)': [carb_ratio]})
+		df_non_basals = pd.DataFrame(data={'ISF [mg/dL/U]': [sensitivity], 'ISF [mmol/L/U]': [sensitivity/18],  'Carbratio (gr/U)': [carb_ratio]})
 		return df_basals, df_non_basals, profile
 
 	# GET RECOMMENDATIONS
@@ -85,7 +85,7 @@ class Autotune:
 
 		# extract sensitivity and carbratio from autotune recommendations dictionary and insert in old profile
 		for i in l:
-			if "ISF" in str(i["Parameter"]):
+			if "ISF[mg/dL/U]" in str(i["Parameter"]):
 				sensitivity = i["Autotune"]
 			if "CarbRatio" in str(i["Parameter"]):
 				carb_ratio = i["Autotune"]
