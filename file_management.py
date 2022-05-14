@@ -1,6 +1,6 @@
 import os
 from definitions import ROOT_DIR, PROFILE_FILES
-
+from log import logging
 
 def mv_files(files_list=None):
     if files_list is None:
@@ -16,10 +16,9 @@ def mv_files(files_list=None):
 
 def checkdir(dir):
     if not os.path.isdir(dir):
-        print("Directory not found")
+        logging.error("Directory not found")
         try:
             os.makedirs(dir)
         except Exception as e:
-            print("Error occured during opening directory")
-            print(e)
-            sys.exit(("Error occured during making of directory" + dir))
+            logging.error("Error occured during opening directory:"+dir)
+            logging.error(e)

@@ -12,3 +12,4 @@ ec2_instance_files
 __pycache__
 old_assets
 .DS_Store
+*.log

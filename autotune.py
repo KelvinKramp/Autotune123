@@ -3,13 +3,13 @@ from get_profile import get_profile
 import os
 from definitions import ROOT_DIR
 from data_processing.get_recommendations import get_recommendations
-from correct_current_basals import correct_current_basals
 import json
 from datetime import datetime as dt
 import pandas as pd
 from urllib.parse import urlparse
 from definitions import UPLOAD_FOLDER, home, PROFILE_FILES
 from file_management import checkdir
+from log import logging
 
 # AUTOTUNE CLASS
 class Autotune:
@@ -20,7 +20,7 @@ class Autotune:
 			result = urlparse(x)
 			return all([result.scheme, result.netloc])
 		except Exception as e:
-			print(e)
+			logging.error(e)
 			return False
 
 	# CLEAN UP FILES
@@ -69,7 +69,7 @@ class Autotune:
 			df_recommendations = get_recommendations()
 			return df_recommendations
 		except Exception as e:
-			print(e)
+			logging.error(e)
 			return None
 
 
@@ -126,7 +126,7 @@ class Autotune:
 			self.clean_up()
 			return True
 		except Exception as e:
-			print(e)
+			logging.error(e)
 			return False
 
 

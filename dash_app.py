@@ -16,6 +16,7 @@ from datetime import timedelta
 from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
 from definitions import development, assets_path, github_link
+from log import logging
 # VARIABLES
 
 autotune = Autotune()
@@ -236,73 +237,8 @@ def init_dashboard(server):
                 style={"width": "70%", 'justify-content': 'center'}
             ), ],
             justify='center'),),
-        # dbc.Row([
-        #     dbc.Col([
-        #         dcc.Link("What is Autotune123?",
-        #                  href="https://github.com/KelvinKramp/Autotune123",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 3, "offset": 0},
-        #     ),
-        #     dbc.Col([
-        #         dcc.Link("What is Autotune?",
-        #                  href="https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 2, "offset": 0},
-        #     ),
-        #     dbc.Col([
-        #         dcc.Link("What is NightScout?",
-        #                  href="https://nightscout.github.io/",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 3, "offset": 0},
-        #     ),
-        # ], style={
-        #     'position': 'relative',
-        #     'bottom': '0',
-        #     'text-align': 'center',
-        #     # 'height' : '40px',
-        #     # 'margin-top' : '40px',
-        #     'margin-bottom': '20px',
-        #     'width': '100%',
-        # }, className='justify-content-center',
-        # ),
-        # dbc.Row([
-        #     dbc.Col([
-        #         dcc.Link("How to get glucose data from the Freestyle libre 2 to Nightscout",
-        #                  href="https://towardsdatascience.com/how-to-hack-a-glucose-sensor-ebaaf2238170",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 3, "offset": 0},
-        #     ),
-        #     dbc.Col([
-        #         dcc.Link("Open source MIT license",
-        #                  href="https://github.com/KelvinKramp/Autotune123/blob/master/LICENSE.txt",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 3, "offset": 0},
-        #     ),
-        #     dbc.Col([
-        #         dcc.Link("About me",
-        #                  href="https://www.kelvinkramp.com",
-        #                  target="_blank",
-        #                  style={'color': '#2c3e50'}),
-        #     ], width={"size": 2, "order": 3, "offset": 0},
-        #     ),
-        # ], style={
-        #     'position': 'relative',
-        #     'bottom': '0',
-        #     'text-align': 'center',
-        #     # 'height' : '40px',
-        #     # 'margin-top' : '40px',
-        #     'margin-bottom': '20px',
-        #     'width': '100%',
-        # }, className='justify-content-center',
-        # ),
         dbc.Modal(
             [
-                # dbc.ModalHeader(html.H3("About Autotune123")),
                 dbc.ModalBody(
                     dcc.Markdown("""
                 #### What is Autotune?
