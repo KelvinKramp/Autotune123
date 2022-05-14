@@ -1,14 +1,10 @@
 from dash import html
 from dash import dcc
 import dash_bootstrap_components as dbc
+from definitions import text_links
 
+link1, link2, link3, link4, link5 = text_links
 
-# links
-link1 = html.A("Savitzky-Golay filters", href='https://www.delftstack.com/howto/python/smooth-data-in-python/#use-the-numpy-convolve-method-to-smooth-data-in-python', target="_blank")
-link2 = html.A("writes", href='https://diatribe.org/rules-engagement-basal-insulin-adjustment-or-avoiding-basal-blunders', target="_blank")
-link3 = html.A("late in the evening to the night", href='https://www.psychologyinaction.org/psychology-in-action-1/2020/6/11/diurnal-patterns-of-cortisol', target="_blank")
-link4 = html.A(" in this picture", href='https://diatribe.org/sites/default/files/images/tab-5.JPG', target="_blank")
-link5 = html.A(" not set up properly", href='https://diatribe.org/rules-engagement-basal-insulin-adjustment-or-avoiding-basal-blunders', target="_blank")
 
 step3_graph = html.Div([
     html.Div(id='graph'),

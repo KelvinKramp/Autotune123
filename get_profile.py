@@ -13,7 +13,8 @@ import os.path
 import logging
 import sys
 import requests
-from definitions import ROOT_DIR, checkdir
+from definitions import ROOT_DIR
+from file_management import checkdir
 from correct_current_basals import correct_current_basals
 
 PROFILE_FILES = ['autotune.json', 'profile.json', 'pumpprofile.json']

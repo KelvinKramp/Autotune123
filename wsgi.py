@@ -1,8 +1,5 @@
 from app import app
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from definitions import development
 
 
 # This app contains a convulted way to run a dashapp on nginx server
@@ -11,7 +8,7 @@ load_dotenv()
 # https://hackersandslackers.com/plotly-dash-with-flask/
 
 if __name__ == "__main__":
-    if os.environ.get("ENV") == "development":
+    if development:
         app.run(host='0.0.0.0', port=8080, debug=True, use_reloader=True)
     else:
         app.run(host='0.0.0.0', port=8080, debug=False, use_reloader=False)

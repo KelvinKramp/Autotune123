@@ -10,10 +10,11 @@ def data_preperation(dropdown_value):
     df_recommendations = get_recommendations()
     # get the lists x, y1 and y2 from the pd df based on dropdown value
     x, y1, y2 = get_filtered_data(df_recommendations, dropdown_value)
-    # create a peak in the curve if wanted
-    print(type(y1))
-    print(type(y2))
-    print(len(x))
+
+    # TODO: create a peak in the curve if wanted
+    # print(type(y1))
+    # print(type(y2))
+    # print(len(x))
     # take 5 basal values with the 3th based on time input
     # increase middel value y2 with given percentage
     # increase surrounding y2 values with percentage/2 and percentage /4.

@@ -15,13 +15,11 @@ from dateutil.parser import parse
 from datetime import timedelta
 from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
-
+from definitions import development, assets_path, github_link
 # VARIABLES
-development = False
+
 autotune = Autotune()
 df = pd.DataFrame()
-assets_path = os.getcwd() + '/assets'
-github_link = html.A("GitHub", href='https://github.com/KelvinKramp/Autotune123', target="_blank", style={'color': 'black'})
 
 
 def init_dashboard(server):
@@ -431,8 +429,7 @@ def init_dashboard(server):
 
         # STEP 2: RUN AUTOTUNE
         if run_autotune and start_date and end_date and NS_HOST and autotune.url_validator(NS_HOST):
-            if not development:
-                autotune.run(NS_HOST, start_date, end_date, uam)
+            autotune.run(NS_HOST, start_date, end_date, uam)
             df_recommendations, graph, y1_sum_graph, y2_sum_graph = data_preperation(dropdown_value)
             text_under_graph = "* Total amount insulin currently {}. Total amount based on autotune with filter {}. {}".format(
                 y1_sum_graph, y2_sum_graph, extra_text),

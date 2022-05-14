@@ -1,19 +1,15 @@
 import subprocess
 from get_profile import get_profile
 import os
-from definitions import ROOT_DIR, checkdir
+from definitions import ROOT_DIR
 from data_processing.get_recommendations import get_recommendations
 from correct_current_basals import correct_current_basals
 import json
 from datetime import datetime as dt
 import pandas as pd
 from urllib.parse import urlparse
-
-# VARIABLES
-UPLOAD_FOLDER = '/uploads'
-home=os.path.expanduser('~')
-PROFILE_FILES = ['autotune.json', 'profile.json', 'pumpprofile.json']
-
+from definitions import UPLOAD_FOLDER, home, PROFILE_FILES
+from file_management import checkdir
 
 # AUTOTUNE CLASS
 class Autotune:

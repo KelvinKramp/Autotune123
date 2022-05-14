@@ -5,6 +5,7 @@ from pprint import pprint
 import os
 
 name_intermediary_txt = "corrected_basal.txt"
+
 # Correct profile if not a
 def correct_current_basals(profile):
     with open(name_intermediary_txt, 'w') as f:

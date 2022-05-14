@@ -2,12 +2,8 @@ import pandas as pd
 import os
 import datetime
 import subprocess
+from definitions import recommendations_file_path, new_profile_file_path
 
-
-recommendations_file_path = "myopenaps/autotune/autotune_recommendations.log"
-recommendations_file_path = os.path.join(os.path.expanduser('~'), recommendations_file_path)
-new_profile_file_path = "new_profile.csv"
-new_profile_file_path = os.path.join(os.path.expanduser('~'), new_profile_file_path)
 
 def modification_date(filename):
     t = os.path.getmtime(filename)

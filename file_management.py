@@ -1,7 +1,6 @@
 import os
-from definitions import ROOT_DIR
+from definitions import ROOT_DIR, PROFILE_FILES
 
-PROFILE_FILES = ['autotune.json', 'profile.json', 'pumpprofile.json']
 
 def mv_files(files_list=None):
     if files_list is None:
@@ -14,3 +13,13 @@ def mv_files(files_list=None):
         # print("To:")
         # print(new_path)
         os.replace(old_path, new_path)
+
+def checkdir(dir):
+    if not os.path.isdir(dir):
+        print("Directory not found")
+        try:
+            os.makedirs(dir)
+        except Exception as e:
+            print("Error occured during opening directory")
+            print(e)
+            sys.exit(("Error occured during making of directory" + dir))
