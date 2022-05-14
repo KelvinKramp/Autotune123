@@ -81,8 +81,7 @@ step2 = html.Div(children=[
                 style_header={'display':'none'},
                 editable=False,
             ),
-        html.Div("* The timestamps that did not have a basal rate "
-                 "where autocompleted with the basal rate of the previous timestamp."),
+        html.Div("* The timestamps of '..:30' where autocompleted with the basal rate of the previous timestamp."),
         html.Div("* Scroll through the table to review all values."),
         html.Br(),
     ])

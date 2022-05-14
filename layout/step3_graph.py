@@ -41,13 +41,14 @@ step3_graph = html.Div([
         ]
     ),
     html.Br(),
-    dbc.Alert(
-        html.Div(children=[
+    dbc.Modal(
+        [
+        dbc.ModalBody(children=[
             html.Div([
-                'The dropdown list shows ',link1,
+                'As Gary Scheiner ',link2, ': "When setting up a 24-hour basal program, our objective is to mimic normal physiology as closely as '
+                'possible." The dropdown list in step 3 shows ',link1,
                 ' with different parameters. The filter is used to smooth the OpenAPS Autotune results. Flattening the curve like this will lead to basal rate recommendations that are more closely aligned with physiological values.'
-                ' As Gary Scheiner ',link2, ': "When setting up a 24-hour basal program, our objective is to mimic normal physiology as closely as '
-                'possible."  '
+                ' '
                 ]
             ),
             html.Br(),
@@ -59,16 +60,22 @@ step3_graph = html.Div([
             ),
             html.Br(),
             html.Div(children=[
-                'The resulting curve after applying the filter should preferably display one peak and one valley in insulin levels. You can find examples of how a curve should look per age range in', link4,
-                '. A basal profile that has multiple peaks and valleys is often incorrect or compensating for some other aspect of the insulin administration that is', link5,'.'
+                'The resulting curve after applying the filter should preferably display one peak and one valley in insulin levels. You can find examples of how a curve could look per age range in', link4,
+                '. A basal profile that has multiple peaks and valleys is often incorrect or compensating for some other aspect of the insulin administration that is incorrectly configured'
                 ]
             ),
             ]),
+        dbc.ModalFooter(
+            dbc.Button("Close", id="close-savgol_filter", className="ml-auto")
+        )],
         id="info",
-        color="light",
-        dismissable=True,
-        fade=False,
-        is_open=False,
+        size="xl",  # "sm", "lg", "xl" = small, large or extra large
+        backdrop=True,  # Modal to not be closed by clicking on backdrop
+        scrollable=True,  # Scrollable in case of large amount of text
+        centered=True,  # Vertically center modal
+        keyboard=True,  # Close modal when escape is pressed
+        fade=True,  # True, False
+        # style={"max-width": "none", "width": "50%",}
     ),
     html.Br()
     ])

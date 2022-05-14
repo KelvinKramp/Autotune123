@@ -203,15 +203,17 @@ def ns_to_oaps(ns_profile):
     return sorted_profile
 
 
-def get_profile(nightscout, directory="myopenaps/settings", token=None):
+def get_profile(nightscout, insulin_type, directory="myopenaps/settings", token=None):
     """
     Write profile in OpenAPS format to a directory
     """
+    print(directory)
     directory = os.path.join(os.path.expanduser('~'),directory)
     if nightscout.endswith("/"):
         nightscout = nightscout[:-1]
-    profile = ns_to_oaps(get_current_profile(nightscout, token))
-    profile = correct_current_basals(profile)
+    profile_openaps = ns_to_oaps(get_current_profile(nightscout, token))
+    profile = correct_current_basals(profile_openaps)
+    profile["curve"] = insulin_type
     logging.debug("Checking for directory: %s", directory)
     checkdir(directory)
     for profile_file in PROFILE_FILES:

@@ -41,8 +41,8 @@ class Autotune:
 		subprocess.call(command2, shell=True)
 
 	# GET PROFILE
-	def get(self, nightscout, token=None):
-		profile = get_profile(nightscout, token)
+	def get(self, nightscout, token=None, insulin_type="rapid-acting"):
+		profile = get_profile(nightscout, insulin_type, token=token)
 		print("nightscout profile succesfully retreived")
 		d = profile
 		carb_ratio = d["carb_ratios"]["schedule"][0]["ratio"]

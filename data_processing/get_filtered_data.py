@@ -3,8 +3,8 @@ from scipy.signal import savgol_filter
 
 
 def get_filtered_data(df, filter="No filter"):
-    # clean lists by removing sensitivity, removing IC ratio, removing empty values and converting strings
-    # with ratios to floats.
+    """Clean lists by removing sensitivity, removing IC ratio, removing empty values and converting strings
+     with ratios to floats. Also removes the half hour values from recommendations"""
 
     # x
     l = df["Parameter"].to_list()
@@ -52,7 +52,7 @@ def get_filtered_data(df, filter="No filter"):
         elif filter == "Savitzky-Golay 23.3":
             l3 = savgol_filter(l2_clean, 23, 3)
 
-    # update numpy array of recommendations (l2) with filtered values
+    # update numpy array of recommendations (l2) with list of filtered values
     n = 0
     for i, j in enumerate(l2):
         if not np.isnan(j):
@@ -63,9 +63,19 @@ def get_filtered_data(df, filter="No filter"):
     # round numbers
     l2 = [round(num, 2) for num in l2]
 
+
+    # remove half hour values
+    l=[]
+    for i, j in enumerate(l1):
+        if (i + 1) % 2 == 0:
+            l.append("nan")
+        else:
+            l.append(j)
+    l1 = l
+
     # use easy identifiable variable names
     x = l_time
     y1 = l1
     y2 = l2
 
-    return x,y1,y2
+    return x, y1, y2
