@@ -15,3 +15,5 @@ t.py
 logfile.txt
 notes.txt
 debugfiles/test.log
+tests/unittest_log.txt
+tests/compare-autotuneweb-autotune123

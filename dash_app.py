@@ -162,10 +162,6 @@ def init_dashboard(server):
                             dbc.Row(
                                 [
                                     dbc.Col(
-                                        html.Div(""),
-                                        width={"size": 6, "offset": 0},
-                                    ),
-                                    dbc.Col(
                                         [
                                             dbc.Button("Download log file", id="btn_text"),
                                             dcc.Download(id="download-dataframe-text"),
@@ -186,7 +182,7 @@ def init_dashboard(server):
                                         ],
                                         width={"size": "auto", "offset": 0},
                                     ),
-                                ]
+                                ],style={'justify-content': 'right', "text-align": "right"}
                             ),
                             dbc.Row([
                                 html.Div([

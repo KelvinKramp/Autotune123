@@ -53,5 +53,11 @@ It's easy to adjust the code so you don't have to fill in your NightScout url an
 
 Feature requests, suggestions and pull requests are very much appreciated and welcome!
 (btw I really need someone help me with the frontend, it doesnt look very fancy right now...)
+
+
+## Results comparison with Autotuneweb
+You can a comparison between autotuneweb and Autotune123 in [this Google Docs link](https://docs.google.com/document/d/1vD75UNISKR1PRoFJYfQb95CWanS69iEYLepJXohpVvs/edit?usp=sharing).
+Checks have been performed on: 1) different time periods, 2) with vs. without UAM, 3) Insulin type rapid-acting vs. ulta-rapid acting
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
