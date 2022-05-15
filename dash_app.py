@@ -285,18 +285,24 @@ def init_dashboard(server):
                 dbc.ModalBody([
                     dcc.Markdown("""
 #### Overview of different open source applications to tune basal profiles
-| | |[Autotune](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html)  | [Autotuneweb](https://autotuneweb.azurewebsites.net/) |[NightScoutsuggestions](https://nightscoutsuggestions.com/) | [Autotune123](http://autotune123.com/)|
-|---| --- |--- | --- |--- | --- |
-|Year of creation| |2016|2018|2021|2022|
-|Fasting necessary| |-|-|+|-|
-|Computer terminal| |+|-|-|-|
-|Download calculation documents| |+|+|-|+|
-|Download recommendations| |+|+|-|+|
-|Direct activation of recommendations on pump| |-|-|-|+|
-|Change individual basal values in real-time| |-|-|-|+|
-|Apply smoothing filters| |-|-|-|+|
-|Switch between fast-acting and fiasp| |?|+|-|+|
-|UAM option| |+|+|-|+|
+| |[Autotune](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html)  | [Autotuneweb](https://autotuneweb.azurewebsites.net/) |[NightScoutsuggestions](https://nightscoutsuggestions.com/) | [Autotune123](http://autotune123.com/)|
+|---|--- | --- |--- | --- |
+|Year of creation|2016|2018|2021|2022|
+|Fasting necessary|-|-|+|-|
+|Computer terminal|+|-|-|-|
+|Download log files |+|+|-|+|
+|Download recommendations|+|+|-|+|
+|E-mail recommendations|-|+|-|-|
+|See old results|+|+|-|-|
+|Get profiles in json file|+|+|-|-|
+|Adjust min. 5 minutes carb impact|+|+|-|-|
+|Direct activation of recommendations on pump|-|-|-|+|
+|Change individual basal values in real-time|-|-|-|+|
+|Apply smoothing filters|-|-|-|+|
+|Switch between fast-acting and fiasp|?|+|-|+|
+|UAM option|+|+|-|+|
+*UAM = a function that allows the moments in which a glucose increase that is not registered as a meal input by the user to be defined by the loop as a unregistered meal, consequently letting the loop administer small boluses of insulin.
+
             """)],style={"margin":"auto","padding":"2px","justify-content":"space-between",}),
                 dbc.ModalFooter(
                     dbc.Button("Close", id="close-autos", className="ml-auto")

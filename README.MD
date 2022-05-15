@@ -28,8 +28,12 @@ Checks have been performed on: 1) different time periods, 2) with vs. without UA
 |Year of creation|2016|2018|2021|2022|
 |Fasting necessary|-|-|+|-|
 |Computer terminal|+|-|-|-|
-|Download calculation documents|+|+|-|+|
+|Download log files |+|+|-|+|
 |Download recommendations|+|+|-|+|
+|E-mail recommendations|-|+|-|-|
+|See old results|+|+|-|-|
+|Get profiles in json file|+|+|-|-|
+|Adjust min. 5 minutes carb impact|+|+|-|-|
 |Direct activation of recommendations on pump|-|-|-|+|
 |Change individual basal values in real-time|-|-|-|+|
 |Apply smoothing filters|-|-|-|+|
