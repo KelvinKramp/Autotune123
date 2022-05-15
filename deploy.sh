@@ -1,3 +1,4 @@
+cp -R Autotune123/* ./
 sudo service nginx stop
 pkill gunicorn
 sudo systemctl stop app
