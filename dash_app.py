@@ -36,6 +36,7 @@ def init_dashboard(server):
             children=[
                 dbc.DropdownMenu(
                     children=[
+                        dbc.DropdownMenuItem("Autos", id="autos", href="#"),
                         dbc.DropdownMenuItem("Autotune123", id="about", href="#"),
                         dbc.DropdownMenuItem("Savitzky-Golay filter", id="info-savgol_filter", href="#"),
                         dbc.DropdownMenuItem("About me", href="https://www.kelvinkramp.com/",  target="_blank"),
@@ -279,6 +280,38 @@ def init_dashboard(server):
             fade=True,  # True, False
             # style={"max-width": "none", "width": "50%",}
         ),
+        dbc.Modal(
+            [
+                dbc.ModalBody(
+                    dcc.Markdown("""
+            #### What's up with all the autos???
+            |---| --- | --- |--- | --- |
+            |Year of creation|2016|2018|2021|2022|
+            |Fasting necessary|-|-|+|-|
+            |Knowledge of terminal necessary|+|-|-|-|
+            |Download calculation documents|+|+|-|+|
+            |Download recommendations|+|+|-|+|
+            |Direct activation of recommendations on pump|-|-|-|+|
+            |Change individual basal values in real-time|-|-|-|+|
+            |Apply smoothing filters|-|-|-|+|
+            |Switch between fast-acting and fiasp|?|+|-|+|
+            |UAM option|+|+|-|+|
+            *UAM = a function that allows the moments in which a glucose increase that is not registered as a meal input by the user to be 
+            defined by the loop as a unregistered meal, consequently letting the loop administer small boluses of insulin. 
+            """)),
+                dbc.ModalFooter(
+                    dbc.Button("Close", id="close-autos", className="ml-auto")
+                ),
+            ],
+            id="modal-autos",
+            size="xl",  # "sm", "lg", "xl" = small, large or extra large
+            backdrop=True,  # Modal to not be closed by clicking on backdrop
+            scrollable=True,  # Scrollable in case of large amount of text
+            centered=True,  # Vertically center modal
+            keyboard=True,  # Close modal when escape is pressed
+            fade=True,  # True, False
+            # style={"max-width": "none", "width": "50%",}
+        ),
         html.Div(id="empty-div-autotune"),
     ])
 
@@ -436,6 +469,17 @@ def init_dashboard(server):
         if n1 or n2:
             return not is_open
         return is_open
+
+    @app.callback(
+        Output("modal-autos", "is_open"),
+        [Input("autos", "n_clicks"), Input("close-autos", "n_clicks")],
+        [State("modal-autos", "is_open")],
+    )
+    def toggle_modal_autos(n1, n2, is_open):
+        if n1 or n2:
+            return not is_open
+        return is_open
+
 
     @app.callback(
         Output("download-dataframe-csv", "data"),
