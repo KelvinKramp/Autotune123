@@ -128,5 +128,3 @@ class Autotune:
 		except Exception as e:
 			logging.error(e)
 			return False
-
-
