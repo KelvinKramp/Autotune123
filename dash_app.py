@@ -15,8 +15,7 @@ from datetime import timedelta
 from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
 from definitions import development, github_link
-from log import logging
-from counter.counter import counter1
+from counter import counter1
 
 # VARIABLES
 autotune = Autotune()
