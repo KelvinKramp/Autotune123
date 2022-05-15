@@ -35,6 +35,7 @@ Checks have been performed on: 1) different time periods, 2) with vs. without UA
 |Apply smoothing filters|-|-|-|+|
 |Switch between fast-acting and fiasp|?|+|-|+|
 |UAM option|+|+|-|+|
+
 *UAM = a function that allows the moments in which a glucose increase that is not registered as a meal input by the user to be 
 defined by the loop as a unregistered meal, consequently letting the loop administer small boluses of insulin. 
 
