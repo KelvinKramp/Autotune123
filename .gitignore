@@ -1,7 +1,6 @@
 venv
 secrets.json
 .idea
-*.txt
 *.pem
 uploads/profile_2_upload.json
 ec2_instance_files/autotune123.pem
@@ -12,5 +11,6 @@ ec2_instance_files
 __pycache__
 old_assets
 .DS_Store
-*.log
 t.py
+logfile.txt
+notes.txt
