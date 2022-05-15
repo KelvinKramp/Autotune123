@@ -288,12 +288,13 @@ def init_dashboard(server):
 | |[Autotune](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html)  | [Autotuneweb](https://autotuneweb.azurewebsites.net/) |[NightScoutsuggestions](https://nightscoutsuggestions.com/) | [Autotune123](http://autotune123.com/)|
 |---|--- | --- |--- | --- |
 |Year of creation|2016|2018|2021|2022|
-|Fasting necessary|-|-|+|-|
 |Computer terminal|+|-|-|-|
+|Visualisation of recommendations|-|-|+|+|
 |Download log files |+|+|-|+|
 |Download recommendations|+|+|-|+|
 |E-mail recommendations|-|+|-|-|
 |See old results|+|+|-|-|
+|Use different time zones|+|-|+|-|
 |Get profiles in json file|+|+|-|-|
 |Adjust min. 5 minutes carb impact|+|+|-|-|
 |Direct activation of recommendations on pump|-|-|-|+|
@@ -301,6 +302,7 @@ def init_dashboard(server):
 |Apply smoothing filters|-|-|-|+|
 |Switch between fast-acting and fiasp|?|+|-|+|
 |UAM option|+|+|-|+|
+|Clean calculations based on fasting periods|-|-|+|-|
 *UAM = a function that allows the moments in which a glucose increase that is not registered as a meal input by the user to be defined by the loop as a unregistered meal, consequently letting the loop administer small boluses of insulin.
 
             """)],style={"margin":"auto","padding":"2px","justify-content":"space-between",}),
