@@ -10,12 +10,11 @@ from layout.step2 import step2
 from layout.step3_graph import step3_graph
 from data_processing.table_calculations import sum_column
 from layout.styles import table_style, cell_style, header_style
-import os
 from dateutil.parser import parse
 from datetime import timedelta
 from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
-from definitions import development, assets_path, github_link
+from definitions import development, github_link
 from log import logging
 # VARIABLES
 
@@ -26,7 +25,6 @@ df = pd.DataFrame()
 def init_dashboard(server):
     # START APP
     app = dash.Dash(__name__,
-                    # assets_folder=assets_path,
                     title="Autotune123",
                     suppress_callback_exceptions=True,
                     external_stylesheets=[dbc.themes.FLATLY]
@@ -47,7 +45,6 @@ def init_dashboard(server):
                     label="About",
                 ),
                 dbc.NavItem(dbc.NavLink("Report an issue", href="https://github.com/KelvinKramp/Autotune123/issues", target="_blank")),
-                # dbc.NavItem(dbc.NavLink("About", id='about', n_clicks=0)),
                 dbc.NavItem(dbc.NavLink("GitHub", href="https://github.com/KelvinKramp/Autotune123", target="_blank")),
             ],
             brand="Autotune123",
@@ -350,7 +347,8 @@ def init_dashboard(server):
 
         # STEP 3b: IF CHANGE IN TABLE REFRESH GRAPH AND TABLE
         if interaction_id == "table-recommendations":
-            df_recommendations, graph, y1_sum_graph, y2_sum_graph = data_preperation(dropdown_value)
+            df_recommendations = pd.DataFrame(table_data)
+            df_recommendations, graph, y1_sum_graph, y2_sum_graph = data_preperation(dropdown_value, df=df_recommendations)
             text_under_graph = "* Total amount insulin currently {}. Total amount based on autotune with filter {}. {}".format(
                 y1_sum_graph, y2_sum_graph, extra_text),
             y1_sum_table = sum_column(table_data, "Pump")
@@ -358,7 +356,6 @@ def init_dashboard(server):
             text_under_table = "* Total amount insulin currently {}. Total amount based on autotune with filter and changes in table {}. {}".format(
                 round(y1_sum_table, 2), round(y2_sum_table, 2), extra_text),
             # convert user adjusted table into new recommendations pandas dataframe
-            df_recommendations = pd.DataFrame(table_data)
             return [], [], [], [], True, True, False, [{"name": i, "id": i} for i in df_recommendations.columns], \
                    df_recommendations.to_dict('records'), "Step 3: Review and upload", html.Div(children=[graph]), \
                    text_under_graph, text_under_table

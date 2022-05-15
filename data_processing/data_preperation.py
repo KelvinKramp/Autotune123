@@ -2,12 +2,19 @@ from .get_recommendations import get_recommendations
 from .get_filtered_data import get_filtered_data
 from .create_graph import create_graph
 from .table_calculations import adjust_table
-from .isf_conversion import isf_conversion
+from .isf_conversion import isf_conversion, remove_isf_conversion
 from .clean_values import clean_values
+import pandas as pd
 
-def data_preperation(dropdown_value):
-    # convert Autotune recommendationns file into pd df
-    df_recommendations = get_recommendations()
+def data_preperation(dropdown_value, df=pd.DataFrame()):
+
+    if df.empty:
+        # convert Autotune recommendationns file into pd df
+        df_recommendations = get_recommendations()
+    else:
+        df_recommendations = remove_isf_conversion(df)
+    print("PANDAS DATAFRAME")
+    print(df_recommendations)
     # get the lists x, y1 and y2 from the pd df based on dropdown value
     x, y1, y2 = get_filtered_data(df_recommendations, dropdown_value)
 

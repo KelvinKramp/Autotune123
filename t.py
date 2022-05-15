@@ -1,34 +1,47 @@
-import dash_bootstrap_components as dbc
-from dash import html
-import dash
+from dash import Dash, dash_table, dcc, html
+from dash.dependencies import Input, Output
+import pandas as pd
 
-app = dash.Dash(__name__,
-                # assets_folder=assets_path,
-                title="Autotune123",
-                suppress_callback_exceptions=True,
-                external_stylesheets=[dbc.themes.FLATLY]
-                )
+app = Dash(__name__)
 
+params = [
+    'Weight', 'Torque', 'Width', 'Height',
+    'Efficiency', 'Power', 'Displacement'
+]
 
-app.layout = dbc.NavbarSimple(
-    children=[
-        dbc.NavItem(dbc.NavLink("Page 1", href="#")),
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("More pages", header=True),
-                dbc.DropdownMenuItem("Page 2", href="http:/"),
-                dbc.DropdownMenuItem("Page 3", href="#"),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="More",
+app.layout = html.Div([
+    dash_table.DataTable(
+        id='table-editing-simple',
+        columns=(
+            [{'id': 'Model', 'name': 'Model', "editable":False}] +
+            [{'id': p, 'name': p} for p in params]
         ),
-    ],
-    brand="NavbarSimple",
-    brand_href="#",
-    color="primary",
-    dark=True,
-)
+        data=[
+            dict(Model=i, **{param: 0 for param in params})
+            for i in range(1, 5)
+        ],
+        editable=True
+    ),
+    dcc.Graph(id='table-editing-simple-output')
+])
 
-if __name__ == "__main__":
-    app.run_server(host='0.0.0.0', port=8000, debug=False, use_reloader=True)
+
+@app.callback(
+    Output('table-editing-simple-output', 'figure'),
+    Input('table-editing-simple', 'data'),
+    Input('table-editing-simple', 'columns'))
+def display_output(rows, columns):
+    df = pd.DataFrame(rows, columns=[c['name'] for c in columns])
+    return {
+        'data': [{
+            'type': 'parcoords',
+            'dimensions': [{
+                'label': col['name'],
+                'values': df[col['id']]
+            } for col in columns]
+        }]
+    }
+
+
+if __name__ == '__main__':
+    app.run_server(debug=True)

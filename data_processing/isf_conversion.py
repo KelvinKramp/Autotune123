@@ -11,6 +11,11 @@ def isf_conversion(df):
     df["Parameter"][1] = "ISF[mmol/L/U]"
     return df
 
+def remove_isf_conversion(df):
+    df = df.drop(df.index[1])
+    return df
+
+
 if __name__ == "__main__":
     from .get_recommendations import get_recommendations
     df = get_recommendations()
