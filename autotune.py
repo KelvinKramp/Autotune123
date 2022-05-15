@@ -7,7 +7,7 @@ import json
 from datetime import datetime as dt
 import pandas as pd
 from urllib.parse import urlparse
-from definitions import UPLOAD_FOLDER, home, PROFILE_FILES
+from definitions import UPLOAD_FOLDER, home, PROFILE_FILES, recommendations_file_path
 from file_management import checkdir
 from log import logging
 
@@ -31,9 +31,7 @@ class Autotune:
 			os.path.join(directory, profile_file)
 			command = "rm "+profile_file
 			subprocess.call(command, shell=True)
-		recommendations_file_path = "myopenaps/autotune/autotune_recommendations.log"
-		recommendations_file = os.path.join(os.path.expanduser('~'), recommendations_file_path)
-		command2 = "rm {}".format(recommendations_file)
+		command2 = "rm {}".format(recommendations_file_path)
 		subprocess.call(command2, shell=True)
 
 	# GET PROFILE

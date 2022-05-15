@@ -1,0 +1,60 @@
+
+
+====== WebDriver manager ======
+Current google-chrome version is 101.0.4951
+Get LATEST chromedriver version for 101.0.4951 google-chrome
+Driver [/Users/mackliniek/.wdm/drivers/chromedriver/mac64/101.0.4951.41/chromedriver] found in cache
+/Users/mackliniek/PycharmProjects/Autotune123/tests/testing.py:80: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  driver = webdriver.Chrome(ChromeDriverManager().install())
+...E
+======================================================================
+ERROR: test_d_step4_download_rec (__main__.TestFeedbackApp)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/mackliniek/PycharmProjects/Autotune123/tests/testing.py", line 135, in test_d_step4_download_rec
+    driver.find_element(By.XPATH, downloads_button).click()
+  File "/Users/mackliniek/PycharmProjects/Autotune123/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 81, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/Users/mackliniek/PycharmProjects/Autotune123/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 740, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/mackliniek/PycharmProjects/Autotune123/venv/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 430, in execute
+    self.error_handler.check_response(response)
+  File "/Users/mackliniek/PycharmProjects/Autotune123/venv/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (804, 867)
+  (Session info: chrome=101.0.4951.64)
+Stacktrace:
+0   chromedriver                        0x000000010b1a52c9 chromedriver + 5120713
+1   chromedriver                        0x000000010b133e33 chromedriver + 4656691
+2   chromedriver                        0x000000010ad23158 chromedriver + 393560
+3   chromedriver                        0x000000010ad5f638 chromedriver + 640568
+4   chromedriver                        0x000000010ad5d1b3 chromedriver + 631219
+5   chromedriver                        0x000000010ad5a814 chromedriver + 620564
+6   chromedriver                        0x000000010ad595b2 chromedriver + 615858
+7   chromedriver                        0x000000010ad4d249 chromedriver + 565833
+8   chromedriver                        0x000000010ad75482 chromedriver + 730242
+9   chromedriver                        0x000000010ad4cb05 chromedriver + 563973
+10  chromedriver                        0x000000010ad7558e chromedriver + 730510
+11  chromedriver                        0x000000010ad87f41 chromedriver + 806721
+12  chromedriver                        0x000000010ad75373 chromedriver + 729971
+13  chromedriver                        0x000000010ad4b609 chromedriver + 558601
+14  chromedriver                        0x000000010ad4c635 chromedriver + 562741
+15  chromedriver                        0x000000010b177b1d chromedriver + 4934429
+16  chromedriver                        0x000000010b17c295 chromedriver + 4952725
+17  chromedriver                        0x000000010b1813cf chromedriver + 4973519
+18  chromedriver                        0x000000010b17ccba chromedriver + 4955322
+19  chromedriver                        0x000000010b15737c chromedriver + 4801404
+20  chromedriver                        0x000000010b196c68 chromedriver + 5061736
+21  chromedriver                        0x000000010b196def chromedriver + 5062127
+22  chromedriver                        0x000000010b1ac5e5 chromedriver + 5150181
+23  libsystem_pthread.dylib             0x00007fff204de950 _pthread_start + 224
+24  libsystem_pthread.dylib             0x00007fff204da47b thread_start + 15
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 38.986s
+
+FAILED (errors=1)
+/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/subprocess.py:942: ResourceWarning: subprocess 26922 is still running
+sys:1: ResourceWarning: unclosed file <_io.BufferedWriter name=8>
+sys:1: ResourceWarning: unclosed <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 55672), raddr=('127.0.0.1', 55668)>

@@ -16,8 +16,9 @@ from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
 from definitions import development, github_link
 from log import logging
-# VARIABLES
+from counter.counter import counter1
 
+# VARIABLES
 autotune = Autotune()
 df = pd.DataFrame()
 
@@ -163,7 +164,14 @@ def init_dashboard(server):
                                 [
                                     dbc.Col(
                                         html.Div(""),
-                                        width={"size": 8, "offset": 0},
+                                        width={"size": 6, "offset": 0},
+                                    ),
+                                    dbc.Col(
+                                        [
+                                            dbc.Button("Download log file", id="btn_text"),
+                                            dcc.Download(id="download-dataframe-text"),
+                                        ],
+                                        width={"size": "auto", "offset": 0},
                                     ),
                                     dbc.Col(
                                         [
@@ -307,6 +315,7 @@ def init_dashboard(server):
         State('token', 'value'),
     )
     def load_profile(load, run_autotune, insulin_type, dropdown_value, table_data, checklist_value, NS_HOST, start_date, end_date, token):
+        counter1()
         # identify the trigger of the callback and define as interaction_id
         ctx = dash.callback_context
         interaction_id = ctx.triggered[0]['prop_id'].split('.')[0]
@@ -329,7 +338,8 @@ def init_dashboard(server):
                          " was restricted to input from ({} until {}).".format(parse(start_date).strftime("%d-%m-%Y"),
                                                                                parse(end_date).strftime("%d-%m-%Y"))
         else:
-            extra_text = ""
+            extra_text = "Input from {} until {}.".format(parse(start_date).strftime("%d-%m-%Y"),
+                                                                               parse(end_date).strftime("%d-%m-%Y"))
 
         # STEP 3a: IF CHANGE OF FILTER REFRESH GRAPH AND TABLE
         # if interactino id = button increase or decrease
@@ -362,6 +372,13 @@ def init_dashboard(server):
 
         # STEP 2: RUN AUTOTUNE
         if run_autotune and start_date and end_date and NS_HOST and autotune.url_validator(NS_HOST):
+            # correct_time to prevent inncongruency between datepicker output and autotune input
+            print(start_date)
+            start_date = parse(start_date) + timedelta(1)
+            start_date = start_date.date().strftime("%Y-%m-%d")
+            end_date = parse(end_date) + timedelta(1)
+            end_date = end_date.date().strftime("%Y-%m-%d")
+            # run autotune
             autotune.run(NS_HOST, start_date, end_date, uam)
             df_recommendations, graph, y1_sum_graph, y2_sum_graph = data_preperation(dropdown_value)
             text_under_graph = "* Total amount insulin currently {}. Total amount based on autotune with filter {}. {}".format(
@@ -446,6 +463,20 @@ def init_dashboard(server):
         datetime_string = dt.now().strftime("(%d-%m-%Y-%H-%S)")
         df = pd.DataFrame(table_data)
         return dcc.send_data_frame(df.to_excel, "AutoRec"+datetime_string+".csv", sheet_name=datetime_string)
+
+    @app.callback(
+        Output("download-dataframe-text", "data"),
+        Input("btn_text", "n_clicks"),
+        State('table-recommendations', 'data'),
+        prevent_initial_call=True,
+    )
+    def download_text(n_clicks, table_data):
+        with open('logfile.txt') as f:
+            lines = f.readlines()
+        datetime_string = dt.now().strftime("(%d-%m-%Y-%H-%S)")
+        return dict(content=lines, filename= "AutoRec"+datetime_string+".txt")
+
+
 
     @app.callback(
         Output("info", "is_open"),

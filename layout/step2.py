@@ -13,16 +13,18 @@ step2 = html.Div(children=[
             dcc.DatePickerRange(
                 id='date-picker-range',
                 min_date_allowed=dt.now().date()-timedelta(days=90),
-                max_date_allowed=dt.now().date(),
+                max_date_allowed=dt.now().date()-timedelta(1),
                 initial_visible_month=dt.now().date(),
                 minimum_nights=2,
                 display_format='D-M-Y',
-                start_date=(dt.now() - timedelta(4)).date(),
-                end_date=dt.now().date(),
+                start_date=dt.now().date()-timedelta(4),
+                end_date=dt.now().date()-timedelta(2),
                 # end_date=dt.now().date()
             ),
         ], style={'text-align': 'center', 'margin': 'auto', 'width': '70%'}, className='justify-content-center'),
     ]),
+    html.Div("* Autotune will start in the morning of the first date and end in the evening of the last date",
+             style={'text-align': 'center'}),
     html.Br(),
     dbc.Row([
         dbc.Button('Run autotune', id='run-autotune', n_clicks=0),
