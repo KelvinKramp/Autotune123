@@ -27,7 +27,7 @@ Checks have been performed on: 1) different time periods, 2) with vs. without UA
 |---| --- | --- |--- | --- |
 |Year of creation|2016|2018|2021|2022|
 |Fasting necessary|-|-|+|-|
-|Knowledge of terminal necessary|+|-|-|-|
+|Computer terminal|+|-|-|-|
 |Download calculation documents|+|+|-|+|
 |Download recommendations|+|+|-|+|
 |Direct activation of recommendations on pump|-|-|-|+|

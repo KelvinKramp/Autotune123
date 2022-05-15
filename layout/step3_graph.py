@@ -40,6 +40,7 @@ step3_graph = html.Div([
     dbc.Modal(
         [
         dbc.ModalBody(children=[
+            html.H4("The Savitzky-Golay filter"),
             html.Div([
                 'As Gary Scheiner ',link2, ': "When setting up a 24-hour basal program, our objective is to mimic normal physiology as closely as '
                 'possible." The dropdown list in step 3 shows ',link1,
@@ -57,7 +58,7 @@ step3_graph = html.Div([
             html.Br(),
             html.Div(children=[
                 'The resulting curve after applying the filter should preferably display one peak and one valley in insulin levels. You can find examples of how a curve could look per age range in', link4,
-                '. A basal profile that has multiple peaks and valleys is often incorrect or compensating for some other aspect of the insulin administration that is incorrectly configured'
+                '. A basal profile that has multiple peaks and valleys is often incorrect or compensating for some other aspect of the insulin administration that is incorrectly configured.'
                 ]
             ),
             ]),
