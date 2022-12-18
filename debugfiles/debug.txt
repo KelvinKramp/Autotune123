@@ -1,0 +1,91 @@
+2022-05-16 23:14:02,807:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:14:02,808:INFO: * Restarting with stat
+2022-05-16 23:14:03,782:WARNING: * Debugger is active!
+2022-05-16 23:14:03,850:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:15:22,913:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:15:22,913:INFO: * Restarting with stat
+2022-05-16 23:15:23,857:WARNING: * Debugger is active!
+2022-05-16 23:15:23,863:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:17:27,028:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:17:27,029:INFO: * Restarting with stat
+2022-05-16 23:17:30,172:WARNING: * Debugger is active!
+2022-05-16 23:17:30,188:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:17:35,226:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET / HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,441:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,447:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,523:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-component-suites/dash/dcc/async-datepicker.js HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,529:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-component-suites/dash/dash_table/async-highlight.js HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,531:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-component-suites/dash/dash_table/async-table.js HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,539:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,582:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,586:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,589:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,604:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:35,637:INFO:127.0.0.1 - - [16/May/2022 23:17:35] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:39,816:INFO:127.0.0.1 - - [16/May/2022 23:17:39] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:54,940:INFO:127.0.0.1 - - [16/May/2022 23:17:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-05-16 23:17:55,013:INFO:127.0.0.1 - - [16/May/2022 23:17:55] "[37mGET /_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1[0m" 200 -
+2022-05-16 23:17:55,015:INFO:127.0.0.1 - - [16/May/2022 23:17:55] "[37mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 200 -
+2022-05-16 23:35:55,559:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:35:55,560:INFO: * Restarting with stat
+2022-05-16 23:35:57,153:WARNING: * Debugger is active!
+2022-05-16 23:35:57,167:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:36:02,446:INFO:127.0.0.1 - - [16/May/2022 23:36:02] "[35m[1mPOST /api/ HTTP/1.1[0m" 500 -
+2022-05-16 23:36:19,039:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:36:19,040:INFO: * Restarting with stat
+2022-05-16 23:36:20,648:WARNING: * Debugger is active!
+2022-05-16 23:36:20,655:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:37:04,815:INFO:127.0.0.1 - - [16/May/2022 23:37:04] "[35m[1mPOST /api/ HTTP/1.1[0m" 500 -
+2022-05-16 23:42:05,476:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-05-16 23:42:05,477:INFO: * Restarting with stat
+2022-05-16 23:42:09,046:WARNING: * Debugger is active!
+2022-05-16 23:42:09,078:INFO: * Debugger PIN: 198-756-436
+2022-05-16 23:42:39,751:INFO:127.0.0.1 - - [16/May/2022 23:42:39] "[37mPOST /api/ HTTP/1.1[0m" 200 -
+2022-12-18 16:21:33,398:INFO: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+2022-12-18 16:21:33,399:INFO: * Restarting with stat
+2022-12-18 16:21:34,469:WARNING: * Debugger is active!
+2022-12-18 16:21:34,476:INFO: * Debugger PIN: 198-756-436
+2022-12-18 16:21:48,561:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET / HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,651:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /assets/style.css?m=1645268732.248137 HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,655:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/deps/react@16.v2_1_0m1644253519.14.0.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,662:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/deps/polyfill@7.v2_1_0m1644253519.12.1.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,668:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/deps/react-dom@16.v2_1_0m1644253519.14.0.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,677:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/deps/prop-types@15.v2_1_0m1644253519.7.2.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,680:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash_bootstrap_components/_components/dash_bootstrap_components.v1_0_3m1644253525.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,685:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_1_0m1644253518.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,689:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/dcc/dash_core_components.v2_1_0m1644253519.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,712:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/dcc/dash_core_components-shared.v2_1_0m1644253519.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,726:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/html/dash_html_components.v2_0_1m1644253520.min.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:48,730:INFO:127.0.0.1 - - [18/Dec/2022 16:21:48] "[37mGET /_dash-component-suites/dash/dash_table/bundle.v5_1_0m1644253518.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:49,971:INFO:127.0.0.1 - - [18/Dec/2022 16:21:49] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+2022-12-18 16:21:49,975:INFO:127.0.0.1 - - [18/Dec/2022 16:21:49] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,262:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mGET /_dash-component-suites/dash/dcc/async-datepicker.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,272:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mGET /_dash-component-suites/dash/dash_table/async-highlight.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,278:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mGET /_dash-component-suites/dash/dash_table/async-table.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,293:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,359:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,363:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,366:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,404:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,442:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:21:50,467:INFO:127.0.0.1 - - [18/Dec/2022 16:21:50] "[37mGET /assets/favicon.ico?m=1644574096.0 HTTP/1.1[0m" 200 -
+2022-12-18 16:21:54,531:INFO:127.0.0.1 - - [18/Dec/2022 16:21:54] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:02,162:INFO:127.0.0.1 - - [18/Dec/2022 16:22:02] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:23,704:INFO: * Detected change in '/Users/mackliniek/PycharmProjects/Autotune123/layout/step2.py', reloading
+2022-12-18 16:22:23,927:INFO: * Restarting with stat
+2022-12-18 16:22:25,918:WARNING: * Debugger is active!
+2022-12-18 16:22:25,924:INFO: * Debugger PIN: 198-756-436
+2022-12-18 16:22:30,948:INFO:127.0.0.1 - - [18/Dec/2022 16:22:30] "[37mGET / HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,114:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-layout HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,120:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-dependencies HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,248:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-component-suites/dash/dcc/async-datepicker.js HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,252:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-component-suites/dash/dash_table/async-highlight.js HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,255:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-component-suites/dash/dash_table/async-table.js HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,262:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,298:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,300:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,304:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,319:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:31,346:INFO:127.0.0.1 - - [18/Dec/2022 16:22:31] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:34,404:INFO:127.0.0.1 - - [18/Dec/2022 16:22:34] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -
+2022-12-18 16:22:36,069:INFO:127.0.0.1 - - [18/Dec/2022 16:22:36] "[37mPOST /_dash-update-component HTTP/1.1[0m" 200 -

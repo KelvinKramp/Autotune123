@@ -14,7 +14,7 @@ import os
 
 # CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
 
-filename = os.path.join(ROOT_DIR, "debugfiles", "test.log")
+filename = os.path.join(ROOT_DIR, "debugfiles", "debug.txt")
 logging.basicConfig(filename=filename, level=logging.ERROR,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 

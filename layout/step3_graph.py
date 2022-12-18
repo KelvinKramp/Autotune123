@@ -78,8 +78,3 @@ step3_graph = html.Div([
     ])
 
 
-
-if __name__ == '__main__':
-    from main import app
-    app.layout = step3_graph
-    app.run_server()

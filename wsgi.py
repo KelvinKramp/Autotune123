@@ -6,7 +6,7 @@ from definitions import development
 # the tutorial with explanation of how this works and why it is necessary
 # can be found in this link:
 # https://hackersandslackers.com/plotly-dash-with-flask/
-
+print(development)
 if __name__ == "__main__":
     if development:
         app.run(host='0.0.0.0', port=8080, debug=True, use_reloader=True)

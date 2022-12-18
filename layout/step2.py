@@ -18,8 +18,7 @@ step2 = html.Div(children=[
                 minimum_nights=2,
                 display_format='D-M-Y',
                 start_date=dt.now().date()-timedelta(4),
-                end_date=dt.now().date()-timedelta(2),
-                # end_date=dt.now().date()
+                end_date=dt.now().date(),
             ),
         ], style={'text-align': 'center', 'margin': 'auto', 'width': '70%'}, className='justify-content-center'),
     ]),

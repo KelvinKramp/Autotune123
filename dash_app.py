@@ -16,7 +16,9 @@ from data_processing.data_preperation import data_preperation
 from datetime import datetime as dt
 from definitions import development, github_link
 from counter import counter1
-
+from flask import jsonify
+from flask_restful import Api, Resource, reqparse
+from api.api import autotune_api
 # VARIABLES
 autotune = Autotune()
 df = pd.DataFrame()
@@ -30,8 +32,16 @@ def init_dashboard(server):
                     external_stylesheets=[dbc.themes.FLATLY]
                     )
 
+    # API
+    @app.server.route("/api/", methods=['GET',"POST"])
+    def get():
+        json_object = autotune_api()
+        return json_object
+
+
     # LAYOUT
-    app.layout = html.Div([
+    def serve_layout():
+        return html.Div([
         dbc.NavbarSimple(
             children=[
                 dbc.DropdownMenu(
@@ -320,7 +330,14 @@ def init_dashboard(server):
             # style={"max-width": "none", "width": "50%",}
         ),
         html.Div(id="empty-div-autotune"),
+        dcc.Interval(
+            id='interval-component',
+            interval=1 * 1000,  # in milliseconds
+            n_intervals=0
+        )
     ])
+
+    app.layout = serve_layout()
 
     # AUTOTUNE CALLBACKS
     @app.callback(
@@ -414,6 +431,7 @@ def init_dashboard(server):
             end_date = parse(end_date) + timedelta(1)
             end_date = end_date.date().strftime("%Y-%m-%d")
             # run autotune
+            print(start_date, end_date, NS_HOST, uam)
             autotune.run(NS_HOST, start_date, end_date, uam)
             df_recommendations, graph, y1_sum_graph, y2_sum_graph = data_preperation(dropdown_value)
             text_under_graph = "* Total amount insulin currently {}. Total amount based on autotune with filter {}. {}".format(
@@ -536,6 +554,7 @@ def init_dashboard(server):
         if n1 or n2 or close:
             return not is_open
         return is_open
+
 
     return app.server
 
