@@ -53,7 +53,7 @@ This is rouphly how the application works:
 You can use Autotune123 by going to www.autotune123.com and filling in your NightScout url and your API secret. They are not stored. 
 If you don't want to use the website, you can install it on your computer by following the installation steps below.
 
-## Installation
+## Installation locally
 OpenAPS Autotune is based mainly on Javascript. This repository is written in Python. 
 
 If you run it on your own computer, you have to follow the steps written over [here](https://openaps.readthedocs.io/en/latest/docs/Customize-Iterate/autotune.html) to install the Javascript OpenAPS Autotune.
@@ -74,6 +74,50 @@ and run the app:
 python dash_app.py
 ```
 You can easily adjust the code so you don't have to fill in your NightScout url and API secret everytime you run it on your computer  
+
+## Installation on ubuntu server
+```bash
+git clone https://github.com/KelvinKramp/Autotune123.git
+```
+```bash
+chmod +x Autotune123/install.sh
+```
+```bash
+Autotune123/install.sh
+```
+```bash
+source venv/bin/activate
+```
+```bash
+gunicorn --bind 0.0.0.0:5000 wsgi:app
+```
+```bash
+sudo nano /etc/systemd/system/app.service
+```
+```bash
+sudo systemctl start app
+```
+```bash
+sudo systemctl enable app
+```
+```bash
+sudo nano /etc/nginx/sites-available/app
+```
+```bash
+sudo ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled
+```
+```bash
+sudo rm /etc/nginx/sites-enabled/default
+```
+```bash
+sudo nginx -t
+```
+```bash
+sudo systemctl restart nginx
+```
+```bash
+sudo ufw allow 'Nginx Full'
+```
 
 ## Contributing
 Feature requests, suggestions and pull requests are very much appreciated and welcome!
