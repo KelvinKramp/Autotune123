@@ -225,7 +225,7 @@ def init_dashboard(server):
                     html.Br(),
                     dbc.Row([
                         dcc.Input(
-                            id="input-API-secret", type="password", placeholder="Nightscout API secret",
+                            id="input-API-secret", type="password", placeholder="Nightscout API secret", required=True,
                             style={'text-align': 'center'},
                         ),
                     ], style={'text-align': 'center', 'margin': 'auto', 'width': '40%'},
@@ -359,6 +359,7 @@ def init_dashboard(server):
          Input("radioitems-insulin", "value"),
          Input("dropdown", "value"),
          Input('table-recommendations', 'data'),
+         Input('back-to-step2', 'n_clicks'),
          ],
         State("checklist", "value"),
         State('input-url', 'value'),
@@ -366,10 +367,11 @@ def init_dashboard(server):
         State('date-picker-range', 'end_date'),
         State('token', 'value'),
     )
-    def load_profile(load, run_autotune, insulin_type, dropdown_value, table_data, checklist_value, NS_HOST, start_date, end_date, token):
+    def load_profile(load, run_autotune, insulin_type, dropdown_value, table_data, back_step2, checklist_value, NS_HOST, start_date, end_date, token):
         counter1()
         # identify the trigger of the callback and define as interaction_id
         ctx = dash.callback_context
+        print(ctx.triggered[0]['prop_id'])
         interaction_id = ctx.triggered[0]['prop_id'].split('.')[0]
 
         # check uam checkbox
@@ -392,6 +394,13 @@ def init_dashboard(server):
         else:
             extra_text = "Input from {} until {}.".format(parse(start_date).strftime("%d-%m-%Y"),
                                                                                parse(end_date).strftime("%d-%m-%Y"))
+
+        # STEP 1: GET PROFILE
+        if (interaction_id == "load-profile") or (interaction_id == "back-to-step2"):
+            df_basals, df_non_basals, _ = autotune.get(NS_HOST, token, insulin_type)
+            return [{"name": i, "id": i} for i in df_non_basals.columns], df_non_basals.to_dict('records'), \
+                   [{"name": i, "id": i} for i in df_basals.columns], df_basals.to_dict('records'), \
+                   True, False, True, [], [], "Step 2: Pick time period", html.Div(children=[]), "", ""
 
         # STEP 3a: IF CHANGE OF FILTER REFRESH GRAPH AND TABLE
         # if interactino id = button increase or decrease
@@ -443,15 +452,10 @@ def init_dashboard(server):
         else:
             df = pd.DataFrame()
 
-        # STEP 1: GET PROFILE
-        if interaction_id == "load-profile":
-            df_basals, df_non_basals, _ = autotune.get(NS_HOST, token, insulin_type)
-            return [{"name": i, "id": i} for i in df_non_basals.columns], df_non_basals.to_dict('records'), \
-                   [{"name": i, "id": i} for i in df_basals.columns], df_basals.to_dict('records'), \
-                   True, False, True, [], [], "Step 2: Pick time period", html.Div(children=[]), "", ""
-        else:
-            return [], [], [], [], False, True, True, [{"name": i, "id": i} for i in df.columns], df.to_dict('records'), \
+        return [], [], [], [], False, True, True, [{"name": i, "id": i} for i in df.columns], df.to_dict('records'), \
                    "Step 1: Get your current profile", html.Div(children=[]), "", ""
+
+
 
     # STEP 3C
     # UPLOAD PROFILE

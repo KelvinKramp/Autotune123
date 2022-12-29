@@ -26,13 +26,18 @@ step3_graph = html.Div([
                     id="dropdown",
                     clearable=False
                 ),
-                width={"size": 3, "order": 2, "offset": 0},
+                width={"size": 2, "order": 2, "offset": 0},
             ),
             dbc.Col(
-                dbc.Button(
-                    "More info about the filters", id="more-info", n_clicks=0
+                [
+                    dbc.Button(
+                        "Rerun with different dates", id="back-to-step2", n_clicks=0
+                    ),
+                    dbc.Button(
+                    "More info about the filters", id="more-info", n_clicks=0, style={"margin-left": "10px"}
                 ),
-                width={"size": 3, "order": 3, "offset": 4},
+                ],
+                width={"size": 6, "order": 3, "offset": 1},
             )
         ]
     ),
