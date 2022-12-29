@@ -55,8 +55,6 @@ def init_dashboard(server):
                     in_navbar=True,
                     label="About",
                 ),
-                dbc.NavItem(dbc.NavLink("Time is" + str(dt.now()), href="",
-                                        target="_blank")),
                 dbc.NavItem(dbc.NavLink("Report an issue", href="https://github.com/KelvinKramp/Autotune123/issues", target="_blank")),
                 dbc.NavItem(dbc.NavLink("GitHub", href="https://github.com/KelvinKramp/Autotune123", target="_blank")),
             ],
