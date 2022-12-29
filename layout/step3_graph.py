@@ -31,7 +31,7 @@ step3_graph = html.Div([
             dbc.Col(
                 [
                     dbc.Button(
-                        "Rerun with different dates", id="back-to-step2", n_clicks=0
+                        "Rerun with different dates", id="back-to-step2", n_clicks=0, style={"visibility:hidden"}
                     ),
                     dbc.Button(
                     "More info about the filters", id="more-info", n_clicks=0, style={"margin-left": "10px"}
