@@ -55,6 +55,8 @@ def init_dashboard(server):
                     in_navbar=True,
                     label="About",
                 ),
+                dbc.NavItem(dbc.NavLink("Time is" + str(dt.now()), href="",
+                                        target="_blank")),
                 dbc.NavItem(dbc.NavLink("Report an issue", href="https://github.com/KelvinKramp/Autotune123/issues", target="_blank")),
                 dbc.NavItem(dbc.NavLink("GitHub", href="https://github.com/KelvinKramp/Autotune123", target="_blank")),
             ],
@@ -337,7 +339,7 @@ def init_dashboard(server):
         )
     ])
 
-    app.layout = serve_layout()
+    app.layout = serve_layout
 
     # AUTOTUNE CALLBACKS
     @app.callback(
@@ -466,13 +468,15 @@ def init_dashboard(server):
         State('result-alert', 'is_open'),
     )
     def activate_profile(click, NS_HOST, token, json_data, is_open):
-        if click and NS_HOST and token and json_data:
+        print("uploading profile")
+        print(click, NS_HOST, token, json_data)
+        if click and NS_HOST and json_data:
             _, _, profile = autotune.get(NS_HOST, token)
             new_profile = autotune.create_adjusted_profile(json_data, profile)
             if not development:
                 result = autotune.upload(NS_HOST, new_profile, token)
             else:
-                result = True
+                result = autotune.upload(NS_HOST, new_profile, token)
             if result:
                 return "New profile activated. Check your phone in a couple of 5-30 minutes to see if the activation was successful. " \
                        'The new profile should be visible under the name "OpenAPS Autosync".', \

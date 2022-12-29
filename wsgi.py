@@ -2,7 +2,7 @@ from app import app
 from definitions import development
 
 
-# This app contains a convulted way to run a dashapp on nginx server
+# This app contains a convuluted way to run a dashapp on nginx server
 # the tutorial with explanation of how this works and why it is necessary
 # can be found in this link:
 # https://hackersandslackers.com/plotly-dash-with-flask/
