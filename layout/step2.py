@@ -25,7 +25,6 @@ def step2():
     ]),
     html.Div("* Autotune will start in the morning of the first date and end in the evening of the last date",
              style={'text-align': 'center'}),
-    html.Div(dt.now()),
     html.Br(),
     dbc.Row([
         dbc.Button('Run autotune', id='run-autotune', n_clicks=0),

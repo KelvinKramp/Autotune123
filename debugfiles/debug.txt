@@ -1024,3 +1024,7 @@
 2023-01-02 04:23:13,981:INFO: * Restarting with stat
 2023-01-02 04:23:15,943:WARNING: * Debugger is active!
 2023-01-02 04:23:15,948:INFO: * Debugger PIN: 198-756-436
+2023-01-02 04:25:35,689:INFO: * Detected change in '/Users/mackliniek/PycharmProjects/Autotune123/layout/step2.py', reloading
+2023-01-02 04:25:35,999:INFO: * Restarting with stat
+2023-01-02 04:25:38,035:WARNING: * Debugger is active!
+2023-01-02 04:25:38,055:INFO: * Debugger PIN: 198-756-436
