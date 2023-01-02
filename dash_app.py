@@ -49,7 +49,7 @@ def init_dashboard(server):
                         dbc.DropdownMenuItem("Autotune123", id="about", href="#"),
                         dbc.DropdownMenuItem("Savitzky-Golay filter", id="info-savgol_filter", href="#"),
                         dbc.DropdownMenuItem("Autotune applications", id="autos", href="#"),
-                        dbc.DropdownMenuItem("About me", href="https://www.kelvinkramp.com/",  target="_blank"),
+                        dbc.DropdownMenuItem(str(dt.now().time()), href="https://www.kelvinkramp.com/",  target="_blank"),
                     ],
                     nav=True,
                     in_navbar=True,
