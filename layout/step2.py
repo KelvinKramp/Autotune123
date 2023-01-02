@@ -7,7 +7,8 @@ from datetime import datetime as dt
 from datetime import timedelta
 from .styles import table_style, cell_style, header_style
 
-step2 = html.Div(children=[
+def step2():
+    return html.Div(children=[
     dbc.Row([
         html.Div([
             dcc.DatePickerRange(
@@ -24,6 +25,7 @@ step2 = html.Div(children=[
     ]),
     html.Div("* Autotune will start in the morning of the first date and end in the evening of the last date",
              style={'text-align': 'center'}),
+    html.Div(dt.now()),
     html.Br(),
     dbc.Row([
         dbc.Button('Run autotune', id='run-autotune', n_clicks=0),
