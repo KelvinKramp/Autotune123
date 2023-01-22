@@ -213,7 +213,11 @@ def get_profile(nightscout, insulin_type, directory="myopenaps/settings", token=
     if nightscout.endswith("/"):
         nightscout = nightscout[:-1]
     profile_openaps = ns_to_oaps(get_current_profile(nightscout, token))
+    print("NS TO OPENAPS")
+    print(profile_openaps)
     profile = correct_current_basals(profile_openaps)
+    print("CORRECTED PROFILE")
+    print(profile)
     profile["curve"] = insulin_type
     logging.debug("Checking for directory: %s", directory)
     checkdir(directory)

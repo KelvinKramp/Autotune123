@@ -39,6 +39,7 @@ class Autotune:
 		profile = get_profile(nightscout, insulin_type, token=token)
 		print("nightscout profile succesfully retreived")
 		d = profile
+		print("test1", d)
 		carb_ratio = d["carb_ratios"]["schedule"][0]["ratio"]
 		sensitivity = d["isfProfile"]["sensitivities"][0]["sensitivity"]
 		df_basals = pd.DataFrame.from_dict(d["basalprofile"])
@@ -91,6 +92,7 @@ class Autotune:
 		# extract basal value from autotune recommendations dictionary into list "m"
 		ftr = [3600, 60, 1]
 		m = []
+		print(l)
 		for i, j in enumerate(l):
 			if any(c.isalpha() for c in j["Parameter"]):
 				continue
@@ -122,9 +124,9 @@ class Autotune:
 			print(UPLOAD_FOLDER+file_name)
 			command3 = "oref0-upload-profile {} {} {} --switch=true".format(UPLOAD_FOLDER+file_name, nightscout, token)
 			subprocess.call(command3, shell=True)
-			# command4 = "rm "+file_path
-			# subprocess.call(command4, shell=True)
-			# self.clean_up()
+			command4 = "rm "+file_path
+			subprocess.call(command4, shell=True)
+			self.clean_up()
 			return True
 		except Exception as e:
 			logging.error(e)
