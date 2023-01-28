@@ -471,7 +471,7 @@ def init_dashboard(server):
     )
     def activate_profile(click, NS_HOST, token, json_data, is_open):
         print("uploading profile")
-        print(click, NS_HOST, token, json_data)
+        print(click, NS_HOST, json_data)
         if click and NS_HOST and json_data:
             _, _, profile = autotune.get(NS_HOST, token)
             new_profile = autotune.create_adjusted_profile(json_data, profile)
@@ -482,7 +482,7 @@ def init_dashboard(server):
             if result:
                 return "New profile activated. Check your phone in a couple of 5-30 minutes to see if the activation was successful. " \
                        'The new profile should be visible under the name "OpenAPS Autosync".', \
-                       not is_open, True
+                       not is_open, False
             else:
                 return "Profile activation was unsuccessful:" \
                        "- Check your API secret.\n" \
