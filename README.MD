@@ -118,10 +118,3 @@ sudo systemctl restart nginx
 sudo ufw allow 'Nginx Full'
 ```
 
-## Contributing
-Feature requests, suggestions and pull requests are very much appreciated and welcome!
-(btw I really need someone help me with the frontend, it doesnt look very fancy right now...)
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
